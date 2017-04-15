@@ -43,8 +43,8 @@
       <div class="logo-small-img">
       </div>
       <div class="logo-small-header">
-        <h3>Ed Harrison's</h3>
-        <h1>NUFC Blog</h1>
+        <a href="<?php echo site_url(); ?>" class="small">Ed Harrison's</a></br>
+        <a href="<?php echo site_url(); ?>" class="big">NUFC Blog</a>
       </div>
     </div>
 
@@ -53,6 +53,7 @@
     <!-- logo and banner for large monitors starts here  -->
     <div class="logo-container hidden-md-down">
       <div class="logo-full-width">
+        <a href="<?php echo site_url(); ?>">
         <div class="container">
           <div class="logo-image">
             <img src="<?php bloginfo('template_url'); ?>/img/nufclogo.png" alt="Newcastle United logo">
@@ -63,6 +64,7 @@
           </div>
           <div class="clear"></div>
         </div>
+        </a>
       </div>
     </div>
     <!-- logo ends here -->

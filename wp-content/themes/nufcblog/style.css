@@ -77,17 +77,22 @@ nav {
   background-color: #231F20; }
   .logo-small .logo-small-img {
     max-height: 120px; }
-  .logo-small .logo-small-header h3 {
+  .logo-small .logo-small-header .small {
     color: #FFFFFF;
     font-family: 'Caveat', cursive;
     font-size: 38px; }
-  .logo-small .logo-small-header h1 {
+  .logo-small .logo-small-header .small:hover {
+    text-decoration: none; }
+  .logo-small .logo-small-header .big {
     color: #FFFFFF;
     font-family: 'Oranienbaum', serif;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-weight: bold;
     font-size: 54px; }
+  .logo-small .logo-small-header .big:hover {
+    text-decoration: none; }
+
 
 .logo-container {
   background-color: #231F20;
@@ -206,6 +211,20 @@ nav {
 
 .article {
   padding-top: 20px; }
+
+.article-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0;
+  color: #000;
+  text-decoration: none;
+}
+
+.article-title:hover {
+  color: #231F20;
+  text-decoration: none;
+}
 
 .article-content {
   padding-top: 10px; }
