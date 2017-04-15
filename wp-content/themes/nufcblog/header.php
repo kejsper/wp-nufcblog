@@ -21,15 +21,20 @@
   <header>
     <!-- Navbar menu -->
     <nav>
-      <div class="container">
-        <?php
-          $args = array(
-            'theme_location' => 'primary',
-            'menu_class' => 'navigation'
-          );
-          ?>
-          <?php wp_nav_menu( $args ); ?>
-      </div>
+      <?php
+        $args = array(
+          'theme_location' => 'primary',
+          'container' => 'div',
+          'container_id' => false,
+          'container_class' => 'container',
+          'menu_id' => false,
+          'menu_class' => 'navigation',
+          'depth' => 1,
+          'fallback_cb' => 'bs4navwalker::fallback',
+          'walker' => new bs4navwalker()
+        );
+      ?>
+      <?php wp_nav_menu( $args ); ?>
     </nav>
     <!-- navbar ends here -->
 
