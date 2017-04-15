@@ -1,0 +1,370 @@
+/*
+Theme Name: Newcastle United Blog
+Theme URI: http://www.nufcblog.com
+Author: Kacper Tylenda
+Author URI: http://www.tylenda.com
+Description: Theme prepared for Ed Harrison's blog
+Version: 1.0
+Text Domain: tylenda.com
+*/
+
+/* often used */
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0; }
+
+.break-white {
+  background-color: #FFFFFF;
+  padding: 20px 0; }
+
+.sidebar-break-white {
+  background-color: #FFFFFF;
+  padding: 20px 0; }
+
+.img-thumbnail {
+  border: 0; }
+
+.btn-read-more {
+  background-color: #231F20;
+  border: 0; }
+  .btn-read-more:hover {
+    cursor: pointer;
+    background: #3d2a2f; }
+  .btn-read-more:focus :active {
+    border: 0; }
+
+nav {
+  background-color: #F0B83D;
+  display: block;
+  padding: 0; }
+  nav .container .menu-primary-menu-container {
+    text-align: right;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0; }
+    nav .container .menu-primary-menu-container .navigation {
+      list-style-type: none;
+      padding: 5px 0 5px 0;
+      margin: 0; }
+      nav .container .menu-primary-menu-container .navigation .menu-item {
+        display: inline;
+        height: 100%;
+        padding: 10px 30px 6px 30px;
+        margin: 0 -2px 0 -2px;
+        border-right: 1px solid #f0e43d; }
+        nav .container .menu-primary-menu-container .navigation .menu-item a {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          color: #231F20;
+          font-size: 14px; }
+          nav .container .menu-primary-menu-container .navigation .menu-item a:hover {
+            text-decoration: none; }
+          nav .container .menu-primary-menu-container .navigation .menu-item a:focus {
+            text-decoration: none; }
+        nav .container .menu-primary-menu-container .navigation .menu-item:hover {
+          background-color: #f08b3d;
+          cursor: pointer; }
+    nav .container .menu-primary-menu-container .navigation > :first-child {
+      border-left: 1px solid #f0e43d; }
+
+.logo-small {
+  height: 150px;
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+  background-color: #231F20; }
+  .logo-small .logo-small-img {
+    max-height: 120px; }
+  .logo-small .logo-small-header h3 {
+    color: #FFFFFF;
+    font-family: 'Caveat', cursive;
+    font-size: 38px; }
+  .logo-small .logo-small-header h1 {
+    color: #FFFFFF;
+    font-family: 'Oranienbaum', serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-size: 54px; }
+
+.logo-container {
+  background-color: #231F20;
+  background-image: url("img/bg-logo2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%  15%;
+  height: 500px;
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .logo-container .logo-full-width {
+    background-color: #231F20;
+    width: 100%;
+    height: 120px;
+    position: absolute;
+    top: 380px; }
+    .logo-container .logo-full-width .container {
+      height: 120px;
+      background-color: #231F20; }
+      .logo-container .logo-full-width .container .logo-image {
+        height: 120px;
+        float: left; }
+        .logo-container .logo-full-width .container .logo-image img {
+          padding-top: 10px;
+          max-height: 110px; }
+      .logo-container .logo-full-width .container .logo-text {
+        float: left;
+        height: 90px;
+        padding-top: 10px;
+        padding-left: 20px; }
+        .logo-container .logo-full-width .container .logo-text h3 {
+          color: #FFFFFF;
+          font-family: 'Caveat', cursive;
+          font-size: 38px; }
+        .logo-container .logo-full-width .container .logo-text h1 {
+          color: #FFFFFF;
+          font-family: 'Oranienbaum', serif;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          font-weight: bold;
+          font-size: 54px; }
+      .logo-container .logo-full-width .container .clear {
+        clear: both; }
+
+/* most popular articles section */
+.most-popular {
+  border: 1px solid #231F20;
+  padding-bottom: 0px; }
+  @media screen and (max-width: 480px) {
+    .most-popular {
+      border: 0; } }
+  .most-popular .row .popular-header {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    background-color: #231F20;
+    text-transform: uppercase;
+    background: repeating-linear-gradient(90deg, #231F20, #231F20 50px, #3d2a2f 50px, #3d2a2f 100px); }
+    .most-popular .row .popular-header .popular-header-text {
+      float: left; }
+      .most-popular .row .popular-header .popular-header-text h3 {
+        color: white;
+        font-family: 'Russo One', sans-serif;
+        letter-spacing: 3px; }
+    .most-popular .row .popular-header .stripes {
+      float: right;
+      width: 100px;
+      height: 100%; }
+  .most-popular .card-group {
+    padding-top: 20px; }
+    .most-popular .card-group .single-card {
+      border: 0;
+      margin: 0 25px 35px 0; }
+      .most-popular .card-group .single-card .card-photo-wrapper {
+        overflow: hidden; }
+        .most-popular .card-group .single-card .card-photo-wrapper .card-photo {
+          height: 250px;
+          background-size: cover;
+          background-position: center center;
+          transition: 0.2s; }
+      .most-popular .card-group .single-card:hover .card-photo-wrapper .card-photo {
+        transition: 0.2s;
+        transform: scale(1.1); }
+      .most-popular .card-group .single-card .card-info {
+        border: 0;
+        background-color: white;
+        padding: 0; }
+      .most-popular .card-group .single-card .card-text {
+        padding: 10px 0; }
+        .most-popular .card-group .single-card .card-text h4 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 1.25rem; }
+        .most-popular .card-group .single-card .card-text .read-more {
+          width: 100%; }
+  .most-popular .card-group > :last-child {
+    margin-right: 0; }
+
+/* content section styles */
+/* latest news section styles */
+.news {
+  border: 1px solid #231F20; }
+  @media screen and (max-width: 480px) {
+    .news {
+      border: 0; } }
+
+.latest-header {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  background-color: #231F20;
+  text-transform: uppercase;
+  background: repeating-linear-gradient(90deg, #231F20, #231F20 50px, #3d2a2f 50px, #3d2a2f 100px); }
+  .latest-header h3 {
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    letter-spacing: 2px; }
+
+.article {
+  padding-top: 20px; }
+
+.article-content {
+  padding-top: 10px; }
+
+.article-content-text {
+  float: none;
+  text-align: justify; }
+
+.article-photo-left {
+  float: left;
+  max-width: 330px;
+  margin-right: 10px;
+  margin-bottom: 10px; }
+
+.article-photo-right {
+  float: right;
+  max-width: 360px;
+  margin-left: 10px;
+  margin-bottom: 10px; }
+
+/* SIDEBAR STYLES */
+.sidebar {
+  padding-right: 0; }
+
+.sidebar-item-container {
+  border: 1px solid #231F20;
+  padding-bottom: 15px; }
+
+.sidebar-header {
+  background: repeating-linear-gradient(90deg, #231F20, #231F20 30px, #3d2a2f 30px, #3d2a2f 60px);
+  text-transform: uppercase;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 20px; }
+  .sidebar-header h4 {
+    color: white;
+    font-family: 'Russo One', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 400; }
+
+p.poll-question {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center; }
+
+/* footer styles */
+footer {
+  background-color: #231F20;
+  padding-top: 30px; }
+
+/* LEFT COLUMN STYLES - quote + copyrights */
+/* quote */
+.footer-quote {
+  margin-top: 50px;
+  text-align: center; }
+
+p.quote {
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  text-align: justify;
+  color: #BBBDBF; }
+
+p.quote-author {
+  margin-top: 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  text-align: right;
+  color: #F0B83D; }
+
+.footer-logo {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center; }
+  .footer-logo .footer-logo-image {
+    background-color: #231F20; }
+    @media screen and (max-width: 768px) {
+      .footer-logo .footer-logo-image {
+        width: 90%;
+        max-width: 330px; } }
+
+/* MID COLUMN STYLES - socials+links */
+/* socials */
+.socials {
+  margin-top: 50px;
+  text-align: center; }
+
+h4.footer-header {
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Russo One', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400; }
+
+.social-icon {
+  margin-top: 20px;
+  font-size: 35px;
+  width: 65px;
+  border-width: 0;
+  border-radius: 14px; }
+  .social-icon:hover {
+    background-color: #FFFFFF;
+    color: #231F20; }
+
+.fb {
+  background-color: #3b5998; }
+
+.tw {
+  background-color: #1da1f2; }
+
+.gplus {
+  background-color: #dd4b39; }
+
+.rss {
+  background-color: #f26522; }
+
+/* charity */
+.charity {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  text-align: center; }
+
+.charity-img {
+  margin-top: 25px;
+  width: 250px; }
+
+/* blogroll */
+.blogroll {
+  margin-top: 50px;
+  margin-bottom: 60px;
+  text-align: center;
+  color: white; }
+  .blogroll ul {
+    margin-top: 20px; }
+
+.footer-link {
+  margin-left: 25px;
+  margin-bottom: 6px;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px; }
+
+.copyrights {
+  background-color: #3d2a2f;
+  padding: 15px 0;
+  margin-top: 60px;
+  text-align: center; }
+
+#scrolltop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #231F20;
+  display: block;
+  text-align: center;
+  padding-top: 6px;
+  cursor: pointer; }
+  #scrolltop i {
+    color: white; }
