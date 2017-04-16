@@ -26,6 +26,10 @@ h4 {
 .img-thumbnail {
   border: 0; }
 
+p:empty {
+  display: none;
+}
+
 .btn-read-more {
   background-color: #231F20;
   border: 0; }
@@ -233,6 +237,15 @@ nav {
   float: none;
   text-align: justify; }
 
+.img-wrapper {
+  max-width: 100%;
+  height: auto;
+}
+.img-wrapper .custom-img {
+  max-width: 90%;
+  height: auto;
+}
+
 .article-photo-left {
   float: left;
   max-width: 330px;
@@ -244,6 +257,54 @@ nav {
   max-width: 360px;
   margin-left: 10px;
   margin-bottom: 10px; }
+
+/* aside post format style */
+
+.aside-container {
+  padding: 40px 20px;
+  background-color: #F0B83D;
+  border-radius: 5px;
+}
+
+.aside-container h2 {
+  text-align:center;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  font-size: 36px;
+  text-decoration: underline;
+}
+
+.aside-container p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.aside-container .aside-content {
+  font-size: 16px;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* status (health) format style */
+
+.status-container {
+  padding: 40px 20px;
+  background-color: #BBBDBF;
+  border-radius: 5px;
+}
+
+.status-container h2 {
+  text-align:center;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+  font-size: 36px;
+  text-decoration: underline;
+}
+
+.status-container p {
+  font-size: 18px;
+  font-weight: bold;
+}
 
 /* SIDEBAR STYLES */
 .sidebar {

@@ -20,7 +20,7 @@
   <!-- Header with navigation bar and logo -->
   <header>
     <!-- Navbar menu -->
-    <nav>
+    <nav class="hidden-sm-down">
       <?php
         $args = array(
           'theme_location' => 'primary',
