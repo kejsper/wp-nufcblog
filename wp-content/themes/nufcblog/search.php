@@ -38,7 +38,7 @@
             <div class="row article-content">
               <div class="col-12">
                 <div class="article-content-text">
-                <p><?php the_excerpt(); ?> <a href="<?php the_permalink(); ?>" class="search-read-more">read more...</a></p>
+                <p><?php the_excerpt(); ?></p>
                 </div>
               </div>
             </div>

@@ -1,40 +1,24 @@
 <?php get_header(); ?>
   <div class="break-white"></div>
   <div class="break-white"></div>
-
-
-
-  <!-- PLACE TO PUT MOST POPULAR SECTION IS HERE -->
-
-
-
   <!-- CONTENT -->
+  <?php if(have_posts()) : ?>
+    <?php while(have_posts()) : the_post() ?>
   <div class="container">
     <div class="row">
       <!-- LATEST NEWS SECTION -->
       <div class="col-12 col-lg-9 news">
         <div class="row">
           <div class="col-12 latest-header">
-            <h3>latest news</h3>
+            <h4><?php the_title(); ?></h4>
           </div>
         </div>
-
-
-        <?php if(have_posts()) : ?>
-          <?php while(have_posts()) : the_post() ?>
             <!-- ARTICLE -->
-            <div class="row article">
-              <div class="col-12">
-                <a href="<?php the_permalink(); ?>" class="article-title">
-                  <?php the_title(); ?>
-                </a>
-              </div>
-            </div>
             <div class="row">
-              <div class="col-12">
-                <small class="text-muted">
-                  <?php the_time('l, F jS, Y g:i a'); ?> - <?php comments_number( 'No comments', '1 Comment', '% Comments' ); ?>
-                </small>
+              <div class="col-12 single-info">
+                <span class="text-muted">
+                  <?php the_time('l, F jS, Y g:i a'); ?> by <?php the_author() ?> - <?php comments_number( 'No comments', '1 Comment', '% Comments' ); ?>
+                </span>
               </div>
             </div>
             <div class="row article-content">
@@ -49,6 +33,14 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-12 single-comment">
+                <?php if( comments_open() ){
+                  comments_template();
+                }
+                ?>
+              </div>
+            </div>
             <!-- END OF ARTICLE -->
             <div class="break-white"></div>
           <?php endwhile; ?>
@@ -57,7 +49,7 @@
         <?php endif; ?>
 
         <div class="break-white"></div>
-        <div class="break-white"></div>
+
 
       </div>
       <!-- LATEST NEWS SECTION ENDS HERE -->

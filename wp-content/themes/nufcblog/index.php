@@ -38,8 +38,10 @@
           <!-- PRINT SINGLE CARD -->
           <div class="card single-card">
             <div class="card-photo-wrapper">
-              <div class="card-photo" style="background-image: url('img/card1.jpg')">
-              </div>
+              <?php if(has_post_thumbnail()) : ?>
+                <div class="card-photo" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+                </div>
+              <?php endif; ?>
             </div>
             <div class="card-footer card-info">
               <small class="text-muted"><?php the_time('l, F jS, Y'); ?> · <a href="<?php comments_link(); ?>" class="text-muted"><?php comments_number( 'No comments', '1 Comment', '% Comments' ); ?></a></small>

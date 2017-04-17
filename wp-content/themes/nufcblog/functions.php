@@ -29,6 +29,12 @@ function nufcblog_excerpt_length ($length) {
 }
 add_filter('excerpt_length', 'nufcblog_excerpt_length', 999);
 
+function nufcblog_excerpt_more($more) {
+   global $post;
+   return ' <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '">'. __('[...]', 'nufcblog') .'</a>';
+}
+add_filter('excerpt_more', 'nufcblog_excerpt_more');
+
 // Setting up sidebar widgets
 function nufcblog_init_widgets ($id) {
   register_sidebar(array(

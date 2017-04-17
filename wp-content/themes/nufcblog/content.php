@@ -1,4 +1,5 @@
 <!-- ARTICLE -->
+<article>
 <div class="row article">
   <div class="col-12">
     <a href="<?php the_permalink(); ?>" class="article-title">
@@ -25,5 +26,6 @@
     </div>
   </div>
 </div>
+</article>
 <!-- END OF ARTICLE -->
 <div class="break-white"></div>
