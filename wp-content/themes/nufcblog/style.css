@@ -185,10 +185,15 @@ nav {
         padding: 0; }
       .most-popular .card-group .single-card .card-text {
         padding: 10px 0; }
-        .most-popular .card-group .single-card .card-text h4 {
+        .most-popular .card-group .single-card  .card-text a.card-title {
           font-family: 'Montserrat', sans-serif;
           font-weight: 700;
-          font-size: 1.25rem; }
+          font-size: 1rem;
+          color: black;
+        }
+        .most-popular .card-group .single-card  .card-text a.card-title {
+          text-decoration: none;
+        }
         .most-popular .card-group .single-card .card-text .read-more {
           width: 100%; }
   .most-popular .card-group > :last-child {
@@ -305,6 +310,23 @@ nav {
   font-size: 18px;
   font-weight: bold;
 }
+
+/* SEARCH RESULTS STYLES */
+
+.search-read-more {
+  color: black;
+}
+.search-read-more:hover {
+  color: #3d2a2f;
+}
+.search-read-more:active {
+  color: #3d2a2f;
+}
+.search-read-more:focus {
+  color: #3d2a2f;
+}
+
+
 
 /* SIDEBAR STYLES */
 .sidebar {

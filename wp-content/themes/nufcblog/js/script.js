@@ -1,6 +1,10 @@
 $(document).ready(function () {
   var scrolltop = $('#scrolltop');
   var imgWrapper = $('p img');
+  var cardAdjust = $('.single-card:last-child');
+
+  // Hiding last card in most popular on small devices
+  cardAdjust.addClass('hidden-md-down');
 
 
   // runs fitvid function that adjust yt/vimeo vids to window size

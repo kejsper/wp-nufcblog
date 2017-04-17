@@ -3,8 +3,6 @@
 // Register Nav Walker for bootstrap 4
 require_once('bs4navwalker.php');
 
-
-
 function nufcblog_theme_setup () {
   // Setting up navigation menus
   add_theme_support('menus');
@@ -16,10 +14,20 @@ function nufcblog_theme_setup () {
 
   // Image support in posts
   add_theme_support('post-thumbnails');
+
   // Post formats support
   add_theme_support('post-formats', array('aside', 'status'));
 
+  // Converting search form to html5
+  add_theme_support('html5', array('search-form'));
 }
+
+// set excerpt length function
+function nufcblog_excerpt_length ($length) {
+  //excerpt length - number of words
+  return 32;
+}
+add_filter('excerpt_length', 'nufcblog_excerpt_length', 999);
 
 // Setting up sidebar widgets
 function nufcblog_init_widgets ($id) {
@@ -32,8 +40,10 @@ function nufcblog_init_widgets ($id) {
     'after_title' => '</h4></div></div><div class="row"><div class="col-12">'
   ));
 }
+
 // Initializing sidebar widgets
 add_action('widgets_init', 'nufcblog_init_widgets');
+
 // Initalizing theme setup
 add_action('init', 'nufcblog_theme_setup')
 
