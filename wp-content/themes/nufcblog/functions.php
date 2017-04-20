@@ -2,6 +2,7 @@
 
 // Register Nav Walker for bootstrap 4
 require_once('bs4navwalker.php');
+require('widgets.php');
 
 function nufcblog_theme_setup () {
   // Setting up navigation menus
