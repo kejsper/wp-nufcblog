@@ -84,15 +84,26 @@
         </div>
 
         <div class="break-white"></div>
+        <?php $i=0; ?>
         <?php if(have_posts()) : ?>
           <?php while(have_posts()) : the_post() ?>
+            <?php ++$i;
+              $format = get_post_format();
+              if(($i%2===1)&&(! has_post_format())) { ?>
+              <div class="row"> <?php }
+              if(($i%2===0)&&($format=='aside' || $format=='status')) { ?> </div> <?php } ?>
+
             <?php get_template_part('content', get_post_format()); ?>
 
+            <?php if(($i%2===0)&&(! has_post_format())) { ?>
+            </div>
+            <div class="break-white"></div> <?php } ?>
+            <?php if(($format=='aside')||($format=='status')) { --$i; }?>
           <?php endwhile; ?>
         <?php else : ?>
           <p> <?php __('No posts found');  ?> </p>
         <?php endif; ?>
-
+        <?php   if($i%2===1) {?> </div> <?php } ?>
 
 
 
