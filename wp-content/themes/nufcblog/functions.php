@@ -2,7 +2,8 @@
 
 // Register Nav Walker for bootstrap 4
 require_once('bs4navwalker.php');
-require('widgets.php');
+require_once('widgets.php');
+require_once('ajax.php');
 
 function nufcblog_theme_setup () {
   // Setting up navigation menus
@@ -29,6 +30,23 @@ function nufcblog_excerpt_length ($length) {
   return 32;
 }
 add_filter('excerpt_length', 'nufcblog_excerpt_length', 999);
+
+
+//LIMIT OF WORDS DISPLAYED FOR THE CONTENT FUNCTION
+
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content);
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
 
 function nufcblog_excerpt_more($more) {
    global $post;

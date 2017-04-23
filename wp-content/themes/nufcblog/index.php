@@ -70,7 +70,8 @@
   <!-- the most popular posts section ends here -->
   <div class="break-white"></div>
   <div class="break-white"></div>
-
+  <?php global $wp_meta_boxes;
+  echo $wp_meta_boxes; ?>
 
   <!-- CONTENT -->
   <div class="container">
@@ -105,12 +106,18 @@
         <?php endif; ?>
         <?php   if($i%2===1) {?> </div> <?php } ?>
 
-
-
-
+        <div class="load-more-container"></div>
 
         <div class="break-white"></div>
+
+        <!-- Ajax load more button -->
+        <div class="container text-center">
+          <a class="btn btn-lg btn-default load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">Load more</a>
+        </div>
+
         <div class="break-white"></div>
+
+
 
       </div>
       <!-- LATEST NEWS SECTION ENDS HERE -->
