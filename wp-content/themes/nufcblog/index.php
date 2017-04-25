@@ -111,7 +111,7 @@
         <!-- Ajax load more button -->
         <div class="container text-center">
           <a class="btn btn-lg btn-default load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
-            <i class="fa fa-refresh icon-heli" aria-hidden="true"></i> Load more</a>
+            <i class="fa fa-refresh" aria-hidden="true"></i> Load more</a>
         </div>
         <div class="break-white"></div>
 

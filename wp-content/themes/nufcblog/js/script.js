@@ -53,8 +53,10 @@ $(document).ready(function () {
     var newPage = page+1;
     var ajaxurl = $(that).data('url');
 
-    $.ajax({
+    that.addClass('loading').find('.fa-refresh').addClass('icon-heli');
 
+
+    $.ajax({
       url : ajaxurl,
       type : 'post',
       data : {
@@ -67,6 +69,7 @@ $(document).ready(function () {
       success : function( response ) {
         that.data('page', newPage);
         $('.load-more-container').append( response );
+        that.removeClass('loading').find('.fa-refresh').removeClass('icon-heli');
       }
 
     });

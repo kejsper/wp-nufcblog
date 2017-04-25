@@ -227,8 +227,8 @@ nav {
 
 
 article {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 @media screen and (max-width: 550px) {
   article {
@@ -247,8 +247,15 @@ article {
 }
 
 .article {
-  padding-top: 20px;
+  padding-top: 10px;
   }
+
+.article-photo {
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+}
+
 
 .article-title {
   font-family: 'Montserrat', sans-serif;
@@ -280,18 +287,6 @@ article {
   max-width: 90%;
   height: auto;
 }
-
-.article-photo-left {
-  float: left;
-  max-width: 330px;
-  margin-right: 10px;
-  margin-bottom: 10px; }
-
-.article-photo-right {
-  float: right;
-  max-width: 360px;
-  margin-left: 10px;
-  margin-bottom: 10px; }
 
 .twitter-tweet {
   margin-left:auto;
@@ -360,6 +355,24 @@ a.load-more:not([href]):hover {
   opacity: 1;
   color: #fff;
   background-color: #3d2a2f;
+}
+
+a.loading:not([href]) {
+  background-color: #3d2a2f;
+  cursor: default;
+}
+
+.icon-heli {
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* SEARCH RESULTS STYLES */

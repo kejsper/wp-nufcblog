@@ -11,6 +11,7 @@ function load_more() {
   $query = new WP_Query( array (
     'post_type' => 'post',
     'paged' => $paged,
+    'post_status' => 'publish',
   ) );
 
   if($query->have_posts()):
