@@ -30,6 +30,8 @@ class wpDiscuzForm implements wpdFormConst {
         add_action('edit_form_after_title', array(&$this, 'renderFormeGeneralSettings'));
         add_action('wp_ajax_wpdiscuzCustomFields', array(&$this, 'wpdiscuzFieldsDialogContent'));
         add_action('wp_ajax_adminFieldForm', array(&$this, 'adminFieldForm'));
+        add_action('transition_comment_status', array(&$this, 'changeCommentStatus'), 10, 3);
+        add_action('delete_comment', array(&$this, 'deleteCommentRating'), 269);
         if (!$this->options->isCaptchaInSession) {
             add_action('wp_ajax_generateCaptcha', array(&$this->form, 'generateCaptcha'));
             add_action('wp_ajax_nopriv_generateCaptcha', array(&$this->form, 'generateCaptcha'));
@@ -48,6 +50,7 @@ class wpDiscuzForm implements wpdFormConst {
         add_filter('post_row_actions', array(&$this, 'addCloneFormAction'), 10, 2);
         add_filter('admin_post_cloneWpdiscuzForm', array(&$this, 'cloneForm'));
         add_filter('the_content', array(&$this->form, 'displayRatingMeta'), 10);
+        add_shortcode('wpdrating', array(&$this->form, 'getRatingMetaHtml'));
         add_action('admin_notices', array(&$this, 'formExists'));
     }
 
@@ -476,6 +479,48 @@ class wpDiscuzForm implements wpdFormConst {
                 <?php
             }
         }
+    }
+
+    public function deleteCommentRating($commentId) {
+        $rating = get_comment_meta($commentId, 'rating', true);
+        $comment = get_comment($commentId);
+        if ($rating && $comment->comment_approved == 1) {
+            $this->updatePostRating($comment, -1);
+        }
+    }
+
+    public function changeCommentStatus($new_status, $old_status, $comment) {
+        $rating = get_comment_meta($comment->comment_ID, 'rating', true);
+        if ($old_status == 'approved' && $rating) {
+            $this->updatePostRating($comment, -1);
+        } else if ($new_status == 'approved' && $rating) {
+            $this->updatePostRating($comment, 1);
+        }
+    }
+
+    private function updatePostRating($comment, $difference) {
+        $postRatings = get_post_meta($comment->comment_post_ID, 'wpdiscuz_rating_count', true);
+        $form = $this->getForm($comment->comment_post_ID);
+        $form->initFormFields();
+        $formFields = $form->getFormFields();
+        foreach ($formFields as $key => $value) {
+            if ($value['type'] == 'wpdFormAttr\Field\RatingField') {
+                $postRatings = $this->chagePostSingleRating($key, $comment->comment_ID, $difference, $postRatings);
+            }
+        }
+        update_post_meta($comment->comment_post_ID, 'wpdiscuz_rating_count', $postRatings);
+    }
+
+    private function chagePostSingleRating($metaKey, $commentID, $difference, $postRatings) {
+        $commentFieldRating = get_comment_meta($commentID, $metaKey, true);
+        if (key_exists($metaKey, $postRatings) && $commentFieldRating) {
+            if (key_exists($commentFieldRating, $postRatings[$metaKey])) {
+                $postRatings[$metaKey][$commentFieldRating] = $postRatings[$metaKey][$commentFieldRating] + $difference;
+            } else {
+                $postRatings[$metaKey][$commentFieldRating] = $difference;
+            }
+        }
+        return $postRatings;
     }
 
 }

@@ -297,6 +297,7 @@ article {
   margin-left:auto;
   margin-right: auto;
 }
+
 /* aside post format style */
 
 .aside-container {
@@ -343,6 +344,22 @@ article {
 .status-container p {
   font-size: 18px;
   font-weight: bold;
+}
+
+/* LOAD MORE STYLES */
+
+a.load-more:not([href]) {
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #231F20;
+  color: #fff;
+  opacity: 1;
+  width: 250px
+}
+a.load-more:not([href]):hover {
+  opacity: 1;
+  color: #fff;
+  background-color: #3d2a2f;
 }
 
 /* SEARCH RESULTS STYLES */

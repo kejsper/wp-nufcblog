@@ -3,7 +3,7 @@
 /*
  * Plugin Name: Comments - wpDiscuz
  * Description: Better comment system. Wordpress post comments and discussion plugin. Allows your visitors discuss, vote for comments and share.
- * Version: 4.0.6
+ * Version: 4.0.7
  * Author: gVectors Team (A. Chakhoyan, G. Zakaryan, H. Martirosyan)
  * Author URI: http://gvectors.com/
  * Plugin URI: http://wpdiscuz.com/
@@ -771,7 +771,7 @@ class WpdiscuzCore implements WpDiscuzConstants {
         wp_register_script('wpdiscuz-options-js', plugins_url(WPDISCUZ_DIR_NAME . '/assets/js/wpdiscuz-options.js'), array('jquery'));
         wp_enqueue_script('wpdiscuz-options-js');
         wp_enqueue_script('thickbox');
-        wp_register_script('wpdiscuz-jquery-cookie', plugins_url(WPDISCUZ_DIR_NAME . '/assets/third-party/cookie/js.cookie.js'), array('jquery'), '2.1.3', true);
+        wp_register_script('wpdiscuz-jquery-cookie', plugins_url(WPDISCUZ_DIR_NAME . '/assets/third-party/wpdcookiejs/customcookie.js'), array('jquery'), '2.1.3', true);
         wp_enqueue_script('wpdiscuz-jquery-cookie');
         wp_register_script('wpdiscuz-contenthover', plugins_url(WPDISCUZ_DIR_NAME . '/assets/third-party/contenthover/jquery.contenthover.min.js'), array('jquery'), '1.0.0', true);
         wp_enqueue_script('wpdiscuz-contenthover');
@@ -804,7 +804,7 @@ class WpdiscuzCore implements WpDiscuzConstants {
                 wp_enqueue_style('wpdiscuz-frontend-rtl-css');
             }
 
-            wp_register_script('wpdiscuz-cookie-js', plugins_url(WPDISCUZ_DIR_NAME . '/assets/third-party/cookie/js.cookie.js'), array('jquery'), '2.1.3', false);
+            wp_register_script('wpdiscuz-cookie-js', plugins_url(WPDISCUZ_DIR_NAME . '/assets/third-party/wpdcookiejs/customcookie.js'), array('jquery'), '2.1.3', false);
             wp_enqueue_script('wpdiscuz-cookie-js');
             wp_register_script('autogrowtextarea-js', plugins_url(WPDISCUZ_DIR_NAME . '/assets/third-party/autogrow/jquery.autogrowtextarea.min.js'), array('jquery'), '3.0', false);
             wp_enqueue_script('autogrowtextarea-js');

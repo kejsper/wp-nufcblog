@@ -42,6 +42,9 @@
 
       <div class="col-lg-4 hidden-md-down">
         <!-- links to other nufc websites - blogroll -->
+        <?php if(is_active_sidebar('footer-links')): ?>
+          <?php dynamic_sidebar('footer-links'); ?>
+        <?php endif; ?>
         <div class="blogroll">
           <h4 class="footer-header">blogroll</h4>
           <ul class="list-unstyled">

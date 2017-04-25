@@ -33,7 +33,7 @@ class CheckboxField extends Field {
                 <label><?php _e('Field is required', 'wpdiscuz'); ?>:</label> 
                 <input type="checkbox" value="1" <?php checked($this->fieldData['required'], 1, true); ?> name="<?php echo $this->fieldInputName; ?>[required]" />
             </div>
-             <div class="wpd-field-option">
+            <div class="wpd-field-option">
                 <label><?php _e('Display on reply form', 'wpdiscuz'); ?>:</label> 
                 <input type="checkbox" value="1" <?php checked($this->fieldData['is_show_sform'], 1, true); ?> name="<?php echo $this->fieldInputName; ?>[is_show_sform]" />
             </div>
@@ -41,13 +41,26 @@ class CheckboxField extends Field {
                 <label><?php _e('Display on comment', 'wpdiscuz'); ?>:</label> 
                 <input type="checkbox" value="1" <?php checked($this->fieldData['is_show_on_comment'], 1, true); ?> name="<?php echo $this->fieldInputName; ?>[is_show_on_comment]" />
             </div>
+            <div class="wpd-advaced-options wpd-field-option">
+                <small class="wpd-advaced-options-title"><?php _e('Advanced Options', 'wpdiscuz'); ?></small>
+                <div class="wpd-field-option wpd-advaced-options-cont">
+                    <div class="wpd-field-option">
+                        <label><?php _e('Meta Key', 'wpdiscuz'); ?>:</label> 
+                        <input type="text" value="<?php echo $this->name; ?>"  name="<?php echo $this->fieldInputName; ?>[meta_key]"  required="required"/>
+                    </div>
+                    <div class="wpd-field-option">
+                        <label><?php _e('Replace old meta key', 'wpdiscuz'); ?>:</label> 
+                        <input type="checkbox" value="1" checked="checked"  name="<?php echo $this->fieldInputName; ?>[meta_key_replace]" />
+                    </div>
+                </div>
+            </div>
             <div style="clear:both;"></div>
         </div>
         <?php
     }
 
     public function editCommentHtml($key, $value, $data, $comment) {
-        if($comment->comment_parent && !$data['is_show_sform']){
+        if ($comment->comment_parent && !$data['is_show_sform']) {
             return '';
         }
         $valuesMeta = maybe_unserialize($value);
@@ -73,8 +86,9 @@ class CheckboxField extends Field {
             return;
         $hasDesc = $args['desc'] ? true : false;
         $required = $args['required'] ? ' wpd-required-group ' : '';
-        
-        if (count($args['values']) == 1): ?>
+
+        if (count($args['values']) == 1):
+            ?>
             <div class="wpdiscuz-item wpd-field-group wpd-field-checkbox wpd-field-single  <?php echo $required; ?>  <?php echo $hasDesc ? 'wpd-has-desc' : '' ?>">
                 <div class="wpd-field-group-title">
                     <div class="wpd-item">
@@ -82,18 +96,18 @@ class CheckboxField extends Field {
                         <label class="wpd-field-label wpd-cursor-pointer" for="<?php echo $name . '-1_' . $uniqueId; ?>"><?php echo $args['values'][0]; ?></label>
                     </div>
                 </div>
-            <?php if ($args['desc']) { ?>
+                <?php if ($args['desc']) { ?>
                     <div class="wpd-field-desc">
                         <i class="fa fa-question-circle-o" aria-hidden="true"></i><span><?php echo esc_html($args['desc']); ?></span>
                     </div>
-            <?php } ?>
+                <?php } ?>
             </div>
-            <?php else: ?>
+        <?php else: ?>
             <div class="wpdiscuz-item wpd-field-group wpd-field-checkbox <?php echo $required; ?> <?php echo $hasDesc ? 'wpd-has-desc' : '' ?>">
                 <div class="wpd-field-group-title"><?php _e($args['name'], 'wpdiscuz'); ?></div>
                 <?php if ($args['desc']) { ?>
                     <div class="wpd-field-desc"><i class="fa fa-question-circle-o" aria-hidden="true"></i><span><?php echo esc_html($args['desc']); ?></span></div>
-                    <?php } ?>
+                <?php } ?>
                 <div class="wpd-item-wrap">
                     <?php
                     foreach ($args['values'] as $index => $val) {
@@ -102,8 +116,8 @@ class CheckboxField extends Field {
                             <input id="<?php echo $name . '-' . ($index + 1) . '_' . $uniqueId; ?>" type="checkbox" name="<?php echo $name; ?>[]" value="<?php echo $index + 1; ?>" class="<?php echo $name; ?> wpd-field" >
                             <label class="wpd-field-label wpd-cursor-pointer" for="<?php echo $name . '-' . ($index + 1) . '_' . $uniqueId; ?>"><?php echo $val; ?></label>
                         </div>
-            <?php }
-            ?>
+                    <?php }
+                    ?>
                 </div>
             </div>
         <?php endif; ?>
@@ -112,17 +126,17 @@ class CheckboxField extends Field {
     }
 
     public function frontHtml($value, $args) {
-        if(!$args['is_show_on_comment']){
+        if (!$args['is_show_on_comment']) {
             return '';
         }
         $html = '<div class="wpd-custom-field wpd-cf-text">';
-        $html .= '<div class="wpd-cf-label">' . $args['name'] . '</div> <div class="wpd-cf-value"> ' . implode(' , ', $value) . '</div>';
+        $html .= '<div class="wpd-cf-label">' . $args['name'] . '</div> <div class="wpd-cf-value"> ' . apply_filters('wpdiscuz_custom_field_checkbox', implode(' , ', $value) , $args)  . '</div>';
         $html .= '</div>';
         return $html;
     }
 
     public function validateFieldData($fieldName, $args, $options, $currentUser) {
-        if(!$this->isCommentParentZero() && !$args['is_show_sform']){
+        if (!$this->isCommentParentZero() && !$args['is_show_sform']) {
             return array();
         }
         $values = filter_input(INPUT_POST, $fieldName, FILTER_VALIDATE_INT, FILTER_REQUIRE_ARRAY);

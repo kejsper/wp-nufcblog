@@ -52,6 +52,9 @@ abstract class Field {
                     _e(' (Submit Button)', 'wpdiscuz');
                 } elseif ($args['type'] == 'wpdFormAttr\Field\DefaultField\Captcha') {
                     _e(' (CAPTCHA)', 'wpdiscuz');
+                }elseif(!strstr($args['type'], 'wpdFormAttr\Field\DefaultField')){
+                    $fieldLable = str_replace('wpdFormAttr\Field\\', '', $args['type']);
+                    echo ' ( ' .str_replace('Field', '', $fieldLable) . ' )';
                 }
                 ?>
                 <div class="wpd-field-actions">

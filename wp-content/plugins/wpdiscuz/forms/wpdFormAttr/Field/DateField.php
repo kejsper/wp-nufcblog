@@ -37,6 +37,19 @@ class DateField extends Field {
                 <label><?php _e('Display on comment', 'wpdiscuz'); ?>:</label> 
                 <input type="checkbox" value="1" <?php checked($this->fieldData['is_show_on_comment'], 1, true); ?> name="<?php echo $this->fieldInputName; ?>[is_show_on_comment]" />
             </div>
+            <div class="wpd-advaced-options wpd-field-option">
+                <small class="wpd-advaced-options-title"><?php _e('Advanced Options', 'wpdiscuz'); ?></small>
+                <div class="wpd-field-option wpd-advaced-options-cont">
+                    <div class="wpd-field-option">
+                        <label><?php _e('Meta Key', 'wpdiscuz'); ?>:</label> 
+                        <input type="text" value="<?php echo $this->name; ?>"  name="<?php echo $this->fieldInputName; ?>[meta_key]"  required="required"/>
+                    </div>
+                    <div class="wpd-field-option">
+                        <label><?php _e('Replace old meta key', 'wpdiscuz'); ?>:</label> 
+                        <input type="checkbox" value="1" checked="checked"  name="<?php echo $this->fieldInputName; ?>[meta_key_replace]" />
+                    </div>
+                </div>
+            </div>
             <div style="clear:both;"></div>
         </div>
         <?php
@@ -85,7 +98,7 @@ class DateField extends Field {
             return '';
         }
         $html = '<div class="wpd-custom-field wpd-cf-text">';
-        $html .= '<div class="wpd-cf-label">' . $args['name'] . '</div> <div class="wpd-cf-value"> ' . $value . '</div>';
+        $html .= '<div class="wpd-cf-label">' . $args['name'] . '</div> <div class="wpd-cf-value"> ' . apply_filters('wpdiscuz_custom_field_date', $value , $args) . '</div>';
         $html .= '</div>';
         return $html;
     }

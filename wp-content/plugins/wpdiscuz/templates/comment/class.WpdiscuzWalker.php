@@ -73,7 +73,7 @@ class WpdiscuzWalker extends Walker_Comment {
             $profileUrl = in_array($user->ID, $args['posts_authors']) ? get_author_posts_url($user->ID) : '';
             $commentAuthorUrl = $commentAuthorUrl ? $commentAuthorUrl : $user->user_url;
             if ($user->ID == $args['post_author']) {
-                $authorClass = 'wc-blog-post_author';
+                $authorClass = 'wc-blog-user wc-blog-post_author';
                 $author_title = $this->optionsSerialized->phrases['wc_blog_role_post_author'];
             } else {
                 $authorClass = 'wc-blog-guest';
@@ -83,7 +83,7 @@ class WpdiscuzWalker extends Walker_Comment {
                     if ($user->roles && is_array($user->roles)) {
                         foreach ($user->roles as $role) {
                             if (array_key_exists($role, $blogRoles)) {
-                                $authorClass = 'wc-blog-' . $role;
+                                $authorClass = 'wc-blog-user wc-blog-' . $role;
                                 $author_title = $this->optionsSerialized->phrases['wc_blog_role_' . $role];
                                 break;
                             }
@@ -157,7 +157,8 @@ class WpdiscuzWalker extends Walker_Comment {
         // begin printing comment template
         $output .= '<div id="wc-comm-' . $uniqueId . '" class="' . $commentWrapperClass . ' ' . $authorClass . ' wc_comment_level-' . $depth . '">';
         if ($this->optionsSerialized->wordpressShowAvatars) {
-            $output .= '<div class="wc-comment-left">' . $commentAuthorAvatar;
+            $commentLeftClass = apply_filters('wpdiscuz_comment_left_class', '');
+            $output .= '<div class="wc-comment-left ' . $commentLeftClass . '">' . $commentAuthorAvatar;
             if (!$this->optionsSerialized->authorTitlesShowHide && !$trackOrPingback) {
                 $author_title = apply_filters('wpdiscuz_author_title', $author_title, $comment);
                 $output .= '<div class="' . $authorClass . ' wc-comment-label">' . '<span>' . $author_title . '</span>' . '</div>';
@@ -170,7 +171,8 @@ class WpdiscuzWalker extends Walker_Comment {
         $commentLink = get_comment_link($comment);
         $output .= '<div id="comment-' . $comment->comment_ID . '" class="wc-comment-right ' . $commentContentClass . '" ' . $hideAvatarStyle . '>';
         $output .= '<div class="wc-comment-header">';
-        $output .= '<div class="wc-comment-author">' . $authorName . '</div>';
+        $uNameClasses = apply_filters('wpdiscuz_username_classes', '');
+        $output .= '<div class="wc-comment-author ' . $uNameClasses . '">' . $authorName . '</div>';
 
         $output .= '<div class="wc-comment-link">';
         if ($this->optionsSerialized->shareButtons) {
@@ -191,12 +193,14 @@ class WpdiscuzWalker extends Walker_Comment {
             $output .= '</span>';
         }
 
-        $output = apply_filters('wpdiscuz_after_comment_link', $output, $comment);
+        $output = apply_filters('wpdiscuz_before_comment_link', $output, $comment, $user, $current_user);
 
         if (!$this->optionsSerialized->showHideCommentLink) {
             $commentLinkImg = '<span class="wc-comment-img-link-wrap"><i class="fa fa-link wc-comment-img-link wpf-cta" aria-hidden="true"/></i><span><input type="text" class="wc-comment-link-input" value="' . $commentLink . '" /></span></span>';
             $output .= apply_filters('wpdiscuz_comment_link_img', $commentLinkImg, $comment);
         }
+
+        $output = apply_filters('wpdiscuz_after_comment_link', $output, $comment, $user, $current_user);
 
         $output .= '</div>';
         $output .= '<div class="wpdiscuz_clear"></div>';

@@ -276,6 +276,14 @@ class WpdiscuzOptionsSerialized {
      * Default Value - #FFD700
      */
     public $ratingActivColor;
+    
+    /**
+     * Type - Checkbox
+     * Available Values - before , after
+     * Description - Display ratings on page 
+     * Default Value - after
+     */
+    public $displayRatingOnPost; 
 
     // == RATING == //
 
@@ -558,6 +566,7 @@ class WpdiscuzOptionsSerialized {
         $this->disableFontAwesome = isset($options['disableFontAwesome']) ? $options['disableFontAwesome'] : 0;
         $this->disableTips = isset($options['disableTips']) ? $options['disableTips'] : 0;
         $this->disableProfileURLs = isset($options['disableProfileURLs']) ? $options['disableProfileURLs'] : 0;
+        $this->displayRatingOnPost = isset($options['displayRatingOnPost']) ? $options['displayRatingOnPost'] : array();
         $this->customCss = isset($options['wc_custom_css']) ? $options['wc_custom_css'] : '.comments-area{width:auto; margin: 0 auto;}';
         $this->showPluginPoweredByLink = isset($options['wc_show_plugin_powerid_by']) ? $options['wc_show_plugin_powerid_by'] : 0;
         $this->isUsePoMo = isset($options['wc_is_use_po_mo']) ? $options['wc_is_use_po_mo'] : 0;
@@ -722,6 +731,7 @@ class WpdiscuzOptionsSerialized {
             'disableFontAwesome' => $this->disableFontAwesome,
             'disableTips' => $this->disableTips,
             'disableProfileURLs' => $this->disableProfileURLs,
+            'displayRatingOnPost' => $this->displayRatingOnPost,
             'wc_custom_css' => $this->customCss,
             'wc_show_plugin_powerid_by' => $this->showPluginPoweredByLink,
             'wc_is_use_po_mo' => $this->isUsePoMo,
@@ -794,6 +804,7 @@ class WpdiscuzOptionsSerialized {
             'disableFontAwesome' => '0',
             'disableTips' => '0',
             'disableProfileURLs' => '0',
+            'displayRatingOnPost' => array('after'),
             'wc_custom_css' => '.comments-area{width:auto;}',
             'wc_show_plugin_powerid_by' => '0',
             'wc_is_use_po_mo' => '0',

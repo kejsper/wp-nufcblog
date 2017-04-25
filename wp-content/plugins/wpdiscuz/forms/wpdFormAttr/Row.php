@@ -72,33 +72,33 @@ class Row {
         <?php
     }
 
-    public function renderFrontFormRow($args,$options,$currentUser,$uniqueId,$isMainForm) {
+    public function renderFrontFormRow($args, $options, $currentUser, $uniqueId, $isMainForm) {
         ?>
         <div class="wpd-form-row">
             <?php
             if ($args['column_type'] == 'two') {
                 $left = $args['left'];
                 $right = $args['right'];
-                $this->renderFrontFormCol('left', $left,$options,$currentUser,$uniqueId,$isMainForm);
-                $this->renderFrontFormCol('right', $right, $options,$currentUser,$uniqueId,$isMainForm);
+                $this->renderFrontFormCol('left', $left, $options, $currentUser, $uniqueId, $isMainForm);
+                $this->renderFrontFormCol('right', $right, $options, $currentUser, $uniqueId, $isMainForm);
             } else {
                 $full = $args['full'];
-                $this->renderFrontFormCol('full', $full,$options,$currentUser,$uniqueId,$isMainForm);
+                $this->renderFrontFormCol('full', $full, $options, $currentUser, $uniqueId, $isMainForm);
             }
             ?>
             <div class="clearfix"></div>
         </div>
         <?php
     }
-    
-    private function renderFrontFormCol($colName, $fields,$options,$currentUser,$uniqueId,$isMainForm) {
+
+    private function renderFrontFormCol($colName, $fields, $options, $currentUser, $uniqueId, $isMainForm) {
         ?>
         <div class="wpd-form-col-<?php echo $colName; ?>">
             <?php
             foreach ($fields as $fieldName => $fieldData) {
                 $fieldType = $fieldData['type'];
                 $field = call_user_func($fieldType . '::getInstance');
-                $field->frontFormHtml($fieldName,$fieldData,$options,$currentUser,$uniqueId,$isMainForm);
+                $field->frontFormHtml($fieldName, $fieldData, $options, $currentUser, $uniqueId, $isMainForm);
             }
             ?>
         </div>
@@ -110,13 +110,13 @@ class Row {
             $data['full'] = is_array($data['full']) ? $data['full'] : array();
             $data['full'] = $this->callFieldSanitize($data['full'], $fields);
             $data['column_type'] = 'full';
-        } else if(isset($data['left']) || isset($data['right'])){
-            $data['left'] = is_array($data['left']) ? $data['left'] : array();
-            $data['right'] = is_array($data['right']) ? $data['right'] : array();
+        } else if (isset($data['left']) || isset($data['right'])) {
+            $data['left'] = isset($data['left']) && is_array($data['left']) ? $data['left'] : array();
+            $data['right'] = isset($data['right']) && is_array($data['right']) ? $data['right'] : array();
             $data['left'] = $this->callFieldSanitize($data['left'], $fields);
             $data['right'] = $this->callFieldSanitize($data['right'], $fields);
             $data['column_type'] = 'two';
-        }else{
+        } else {
             return null;
         }
         if (isset($data['row_order'])) {
@@ -132,13 +132,73 @@ class Row {
             if (!isset($fieldData['type']) && !$fieldData['type']) {
                 continue;
             }
-            $callableClass = str_replace('\\\\','\\',$fieldData['type']);
+            $callableClass = str_replace('\\\\', '\\', $fieldData['type']);
             if (is_callable($callableClass . '::getInstance')) {
                 $field = call_user_func($callableClass . '::getInstance');
-                $args[$fieldName] = $field->sanitizeFieldData($fieldData);
-                $fields[$fieldName] = $field->sanitizeFieldData($fieldData);
+                $fieldNewName = $this->changeFieldName($fieldName, $fieldData);
+                if ($fieldNewName != $fieldName) {
+                    $args = $this->chageArrayKey($args, $fieldName, $fieldNewName);
+                    $args[$fieldNewName] = $field->sanitizeFieldData($fieldData);
+                    $fields[$fieldNewName] = $field->sanitizeFieldData($fieldData);
+                } else {
+                    $args[$fieldName] = $field->sanitizeFieldData($fieldData);
+                    $fields[$fieldName] = $field->sanitizeFieldData($fieldData);
+                }
             }
         }
         return $args;
     }
+
+    private function changeFieldName($fieldName, $fieldData) {
+        if (isset($fieldData['meta_key'])) {
+            $metaKey = trim($fieldData['meta_key']);
+            if ($metaKey && $fieldName != $metaKey) {
+                $newName = str_replace('-', '_', sanitize_title($metaKey));
+                $this->replaceMetaKeyInDB($fieldName, $newName, $fieldData);
+                $this->chagePostRatingKey($fieldName, $newName, $fieldData);
+                $fieldName = $newName;
+            }
+        }
+        return $fieldName;
+    }
+
+    private function chagePostRatingKey($oldName, $newName, $fieldData) {
+        if (str_replace('\\\\', '\\', $fieldData['type']) == 'wpdFormAttr\Field\RatingField' && isset($fieldData['meta_key_replace']) && $fieldData['meta_key_replace']) {
+            if ($wpdiscuzRatingCount = $this->getPostRatingMeta()) {
+                foreach ($wpdiscuzRatingCount as $row) {
+                    $metaData = maybe_unserialize($row['meta_value']);
+                    if (is_array($metaData) && key_exists($oldName, $metaData)) {
+                        $metaData = $this->chageArrayKey($metaData, $oldName, $newName);
+                        update_post_meta($row['post_id'], 'wpdiscuz_rating_count', $metaData);
+                    }
+                }
+            }
+        }
+    }
+
+    private function replaceMetaKeyInDB($oldKey, $newKey, $fieldData) {
+        global $wpdb;
+        if (isset($fieldData['meta_key_replace']) && $fieldData['meta_key_replace']) {
+            $sql = $wpdb->prepare("UPDATE `{$wpdb->commentmeta}` SET `meta_key` = %s WHERE `meta_key` = %s", $newKey, $oldKey);
+            $wpdb->query($sql);
+        }
+    }
+
+    private function getPostRatingMeta() {
+        global $wpdb;
+        $sql = "SELECT `post_id`,`meta_value` FROM `{$wpdb->postmeta}` WHERE `meta_key` = 'wpdiscuz_rating_count'";
+        return $wpdb->get_results($sql, ARRAY_A);
+    }
+
+    private function chageArrayKey($array, $oldKey, $newKey) {
+        $keys = array_keys($array);
+        $values = array_values($array);
+        $oldKeyIndex = array_search($oldKey, $keys);
+        if (is_numeric($oldKeyIndex)) {
+            $keys[$oldKeyIndex] = $newKey;
+            $array = array_combine($keys, $values);
+        }
+        return $array;
+    }
+
 }

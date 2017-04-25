@@ -3,7 +3,7 @@ Contributors: gVectors Team
 Tags: wordpress comments, ajax comments, ajax, custom form, custom fields, live update, live comments, realtime chat, chat, realtime commenting, Lazy load, Lazy load comments, mobile commenting, post comments, advanced comment, comments box, community, discussion, discuss, disqus, discuz, Disqus alternative, Livefyre alternative, Jetpack comments alternative, Facebook comments alternative, comment form, commenting, reply, comments, better comments, discussions, comment notifications, comment template, activity, comment author, comment system, redirect, comment redirect, first commenter, email commenting, social login, boost comments, native comments
 Requires at least: 3.8.0
 Tested up to: 4.7
-Stable tag: 4.0.6
+Stable tag: 4.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,10 +14,10 @@ Comments - wpDiscuz: AJAX powered comments, realtime comments. Designed to exten
 AJAX realtime comment system with custom comment form and fields. Designed to supercharge Wordpress native comments. Super fast and responsive with dozens features. This is the best Disqus alternative, if you want to keep your comments in your database. wpDiscuz also the best alternative to Livefyre, Jetpack and Facebook comments. 
 
 
-* Support Forum: http://gvectors.com/forum/
-* wpDiscuz Demo: http://wpdiscuz.com/wpdiscuz-4/
-* wpDiscuz Addons: http://wpdiscuz.com/addons/
-* wpDiscuz Documentation: http://wpdiscuz.com/wpdiscuz-documentation/
+* Support Forum: [http://gvectors.com/forum/](http://gvectors.com/forum/)
+* wpDiscuz Demo: [http://wpdiscuz.com/wpdiscuz-4/](http://wpdiscuz.com/wpdiscuz-4/)
+* wpDiscuz Addons: [http://wpdiscuz.com/addons/](http://wpdiscuz.com/addons)
+* wpDiscuz Documentation: [http://wpdiscuz.com/wpdiscuz-documentation/](http://wpdiscuz.com/wpdiscuz-documentation/)
 
 Integration with User Profile Plugins - Please read the [Integrations] Tab in wpDiscuz Settings admin page
 
@@ -72,6 +72,7 @@ Integration with AntiSpam plugins
 
 * | [wpDiscuz - Emoticons](http://gvectors.com/product/wpdiscuz-emoticons/)
 * | [wpDiscuz - Media Uploader](http://gvectors.com/product/wpdiscuz-media-uploader/)
+* | [wpDiscuz - Comment Author Info](http://gvectors.com/product/wpdiscuz-comment-author-info/)
 * | [wpDiscuz - Google ReCaptcha](http://gvectors.com/product/wpdiscuz-recaptcha/)
 * | [wpDiscuz - myCRED Integration](http://gvectors.com/product/wpdiscuz-mycred/)
 * | [wpDiscuz - Widgets](http://gvectors.com/product/wpdiscuz-widgets/)
@@ -139,10 +140,18 @@ Support Forum: http://gvectors.com/forum/
 
 == Changelog ==
 
-= 4.0.6 =
+= 4.0.7 =
 
-* Fixed Bug: HTML filtering
-* Changed: Removing "img" quicktag
+[Release Summary](http://gvectors.com/forum/important-information-and-announcements/wpdiscuz-4-0-7-is-released/)
+
+* Added: Shortcode for Post Rating `[wpdrating]`
+* Added: Option to display Post Rating on Top/Bottom and with Shortcode
+* Added: Advanced options to Comment Form Custom Fields to change custom field key
+* New Addon: [wpDiscuz - Comment Author Info](http://gvectors.com/product/wpdiscuz-comment-author-info/)
+* Fixed Bug: Update post total rating when comment is deleted
+* Fixed Bug: Server Error 500 on new comment submit
+* Fixed Bug: jQuery.cookie.js/jQuery.cookie.min.js scripts fail to load
+* Fixed Bug: Custom Field displaying order
 
 IMPORTANT:
 
@@ -150,6 +159,11 @@ IMPORTANT:
 - If you have a Cache Plugin, please delete all caches after wpDiscuz update.
 - If you use CDN and found some issue please purge it. 
 - If your server PHP version is lower than 5.4, [please change it to hogher](https://wordpress.org/support/topic/wpdiscuz-4-requires-php-5-4-and-higher/)
+
+= 4.0.6 =
+
+* Fixed Bug: HTML filtering
+* Changed: Removing "img" quicktag
 
 = 4.0.5 =
 

@@ -13,7 +13,7 @@ class nufcblog_health_status_widget extends WP_Widget {
 
   //Back-end display of widget
   public function form( $instance ) {
-    echo '<p>This widget will display health update in the left column of the page.</p><p>You can change content of this widget by adding post with format of STATUS in your admin section (posts -> new -> format: status)</p>';
+    echo '<p>This widget will display health update in the right column of the page.</p><p>You can change content of this widget by adding post with format of STATUS in your admin section (posts -> new -> format: status)</p>';
   }
 
   // Front-end display of widget
@@ -23,7 +23,7 @@ class nufcblog_health_status_widget extends WP_Widget {
 
       echo $args['before_title'] . 'health update' . $args['after_title'];
       $query = array(
-      'post type' => 'post',
+      'post_type' => 'post',
       'posts_per_page' => '1',
       'paged' => '1',
       'tax_query' => array(
@@ -62,7 +62,7 @@ class nufcblog_author_widget extends WP_Widget {
 
   //Back-end display of widget
   public function form( $instance ) {
-    echo '<p>This widget will display short version of Author Bio in the left column of the page.</p><p>You can change content of this widget by adding information in Pages -> Author.</p>';
+    echo '<p>This widget will display short version of Author Bio in the right column of the page.</p><p>You can change content of this widget by adding information in Pages -> Author.</p>';
     $title = ! empty( $instance['title'] ) ? $instance['title'] : '';
     $slug = ! empty( $instance['slug'] ) ? $instance['slug'] : '';
      ?>
@@ -110,19 +110,90 @@ class nufcblog_author_widget extends WP_Widget {
       endwhile;
       endif;
       wp_reset_postdata();
+
+
+
+
+
+
+
+
+
+      $my_file = TEMPLATEPATH.'/addons/leaguetable.json';
+      $file_open = fopen($my_file , 'r');
+      echo fread($file_open,filesize($my_file));
+      fclose($file_open);
+
+
+
+
+
+
+
+
+
+
+
+
     echo $args['after_widget'];
   }
 
 }
 
-//Initialization of Health Update widget
+// LINKS WIDGET
+class nufcblog_links_widget extends WP_Widget {
+  //setup widget Description
+  public function __construct() {
+    $widget_ops = array(
+      'classname' => 'links-widget',
+      'description' => 'Displays blogroll/links on your footer',
+    );
+    parent::__construct( 'links_widget', 'Blogroll Widget', $widget_ops );
+  }
+
+  //Back-end display of widget
+  public function form( $instance ) {
+
+    echo '<p>This widget will display Blogroll/Links section at the bottom of your page.</p><p>You can add/remove/update links in Links section of your Admin Page (just below Posts).</p>';
+
+  }
+
+  // Front-end display of widget
+  public function widget( $args, $instance ) {
+
+    echo $args['before_widget'];
+
+      echo $args['before_title'] . 'blogroll' . $args['after_title'];
+      $query = array(
+        'post_type' => 'links',
+        'posts_per_page' => '50',
+        'paged' => '1',
+      );
+      $status = new WP_Query($query);
+      if($status->have_posts()) :
+        while($status->have_posts()) : $status->the_post();
+          ?> <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> <?php the_title(); ?> </li><?php
+      endwhile;
+      endif;
+      wp_reset_postdata();
+    echo $args['after_widget'];
+  }
+
+}
+
+//Initialization of Links Widget
 add_action('widgets_init', function() {
-  register_widget( 'nufcblog_health_status_widget' );
+  register_widget( 'nufcblog_links_widget' );
 });
 
 //Initialization of Author widget
 add_action('widgets_init', function() {
   register_widget( 'nufcblog_author_widget' );
+});
+
+//Initialization of Health Update widget
+add_action('widgets_init', function() {
+  register_widget( 'nufcblog_health_status_widget' );
 });
 
 ?>

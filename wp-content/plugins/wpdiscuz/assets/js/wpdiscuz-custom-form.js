@@ -129,6 +129,9 @@ $(document).ready(function ($) {
     function wpdFieldLoad() {
         $('#TB_ajaxContent').html('<img class="wpdFieldLoad" src="' + wpdFormAdminOptions.loaderImg + '">');
     }
+    $(document).delegate('.wpd-advaced-options-title','click', function(){
+         $(this).next('.wpd-advaced-options-cont').toggle();
+    });
 });
 //=====================  OBJECT ========================== //
 

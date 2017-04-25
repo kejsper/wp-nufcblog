@@ -347,7 +347,12 @@
     padding: 5px;
 }
 
-
+@media screen and (max-width: 1024px){
+    .wpdiscuz-post-rating-wrap.wpd-custom-field > [class ^= wpdiscuz-post-rating-wrap-custom_field]{
+        flex-basis: 33%;
+        margin-bottom: 10px;
+    }
+}
 @media screen and (max-width:650px){
     #wpcomm .wpdiscuz-subscribe-form-option{width:100%!important;padding:0!important}
     #wpcomm .wpdiscuz-subscribe-form-email{width:100%!important;padding:0!important;margin-top:5px}
@@ -393,6 +398,10 @@
     #wpcomm .wc-comment-footer .wc-footer-right{ float:none; display:block; padding:5px 5px 2px 5px; text-align:left;}
     #wpcomm .wc-comment-footer .wc-footer-right .wc-comment-date{ margin-left:0px;}
     #wpcomm .wc-comment-footer .wc-footer-left span{ margin-bottom:7px; }
+    .wpdiscuz-post-rating-wrap.wpd-custom-field > [class ^= wpdiscuz-post-rating-wrap-custom_field]{
+        flex-basis: 50%;
+        margin-bottom: 10px;
+    }
 }
 @media screen and (max-width:420px){
     #wpcomm .wpdiscuz-sort-buttons,#wpcomm .wpdiscuz-sort-button{font-size:11px!important}
@@ -406,4 +415,8 @@
     #wpcomm .wc-form-wrapper .ed_button{width:18%;padding:0;margin:3px 2px 3px 2px}
     #wpcomm .wc-field-comment .wc-field-textarea .wpdiscuz-quicktags-enabled .commentTextMaxLength{top:49px}
     #wpcomm .wc-comment-link{display: block; float: none; width: 100%;}
+    .wpdiscuz-post-rating-wrap.wpd-custom-field > [class ^= wpdiscuz-post-rating-wrap-custom_field]{
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
 }

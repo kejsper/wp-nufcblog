@@ -71,6 +71,16 @@
 .wpdiscuz-wrapper .wpd-form-table td, .wpdiscuz-wrapper .wpd-form-table th{ vertical-align:top; }
 .wpdiscuz-wrapper .wpd-form-rel-exixts span{ color:#DD0000;}
 .iconpicker-popover{z-index: 1000}
+.wpd-advaced-options.wpd-field-option{
+    margin-top: 10px;
+}
+.wpd-advaced-options-title{
+    color: blue;
+    cursor: pointer;
+}
+.wpd-advaced-options-cont{
+    display: none;
+}
 
 @media screen and (max-width:650px){
 	.wpdiscuz-wrapper .wpd-field-option label{ width:100%;}

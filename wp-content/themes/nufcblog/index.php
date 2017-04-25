@@ -70,8 +70,6 @@
   <!-- the most popular posts section ends here -->
   <div class="break-white"></div>
   <div class="break-white"></div>
-  <?php global $wp_meta_boxes;
-  echo $wp_meta_boxes; ?>
 
   <!-- CONTENT -->
   <div class="container">
@@ -112,11 +110,10 @@
 
         <!-- Ajax load more button -->
         <div class="container text-center">
-          <a class="btn btn-lg btn-default load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">Load more</a>
+          <a class="btn btn-lg btn-default load-more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php'); ?>">
+            <i class="fa fa-refresh icon-heli" aria-hidden="true"></i> Load more</a>
         </div>
-
         <div class="break-white"></div>
-
 
 
       </div>
