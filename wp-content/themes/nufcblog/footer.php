@@ -45,21 +45,7 @@
         <?php if(is_active_sidebar('footer-links')): ?>
           <?php dynamic_sidebar('footer-links'); ?>
         <?php endif; ?>
-        <div class="blogroll">
-          <h4 class="footer-header">blogroll</h4>
-          <ul class="list-unstyled">
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> Football News Daily</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> Lee Ryder’s Blog on the Tyne</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> Mauritian Blog</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> Newcastle United Pro</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> Nothing But Newcastle</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> NUFC Blog</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> NUFC.COM</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> NUFCnet – NUFC Supporters</li>
-            <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> Tyne Time – Irish NUFC Blog</li>
-          </ul>
-
-        </div>
+        
         <!-- end of links section -->
 
 

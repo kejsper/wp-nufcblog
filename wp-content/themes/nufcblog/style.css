@@ -15,6 +15,14 @@ h4 {
   font-size: 1.25rem;
   margin-bottom: 0; }
 
+a {
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 .break-white {
   background-color: #FFFFFF;
   padding: 20px 0; }
@@ -32,7 +40,11 @@ p:empty {
 
 .btn-read-more {
   background-color: #231F20;
-  border: 0; }
+  border: 0;
+  margin-top: 15px !important;
+  padding: 8px 16px !important;
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+ }
   .btn-read-more:hover {
     cursor: pointer;
     background: #3d2a2f; }
@@ -260,7 +272,7 @@ article {
 .article-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-bottom: 0;
   color: #000;
   text-decoration: none;
@@ -419,6 +431,14 @@ p.poll-question {
   font-weight: 700;
   text-align: center; }
 
+
+/* TABLE WIDGET STYLES */
+.league-table {
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+
 /* footer styles */
 footer {
   background-color: #231F20;
@@ -515,6 +535,14 @@ h4.footer-header {
   text-align: left;
   font-family: 'Montserrat', sans-serif;
   font-size: 15px; }
+
+.single-footer-link {
+  color: white;
+}
+.single-footer-link:hover {
+  color: white;
+  text-decoration: none;
+}
 
 .copyrights {
   background-color: #3d2a2f;

@@ -114,8 +114,7 @@
             <i class="fa fa-refresh" aria-hidden="true"></i> Load more</a>
         </div>
         <div class="break-white"></div>
-
-
+        
       </div>
       <!-- LATEST NEWS SECTION ENDS HERE -->
 

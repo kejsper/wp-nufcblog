@@ -110,35 +110,55 @@ class nufcblog_author_widget extends WP_Widget {
       endwhile;
       endif;
       wp_reset_postdata();
-
-
-
-
-
-
-
-
-
-      $my_file = TEMPLATEPATH.'/addons/leaguetable.json';
-      $file_open = fopen($my_file , 'r');
-      echo fread($file_open,filesize($my_file));
-      fclose($file_open);
-
-
-
-
-
-
-
-
-
-
-
-
     echo $args['after_widget'];
   }
 
 }
+
+
+
+
+// LEAGUE TABLE WIDGET
+class nufcblog_table_widget extends WP_Widget {
+  //setup widget Description
+  public function __construct() {
+    $widget_ops = array(
+      'classname' => 'table-widget',
+      'description' => 'Displays automatically updated league table',
+    );
+    parent::__construct( 'table_widget', 'League Table Widget', $widget_ops );
+  }
+
+  //Back-end display of widget
+  public function form( $instance ) {
+    echo '<p>This widget will display automatically updated league table in the right column of the page.</p>';
+
+  }
+
+/*
+  //Updating back-end information of widget
+  public function update($new_instance, $old_instance) {
+    $instance = $old_instance;
+    $instance['title'] = strip_tags( $new_instance['title']);
+    $instance['slug'] = strip_tags( $new_instance['slug']);
+    return $instance;
+  }
+*/
+
+  // Front-end display of the widget
+  public function widget( $args, $instance ) {
+    echo $args['before_widget'];
+    echo $args['before_title'] . 'league table' . $args['after_title'];
+    $my_file = TEMPLATEPATH.'/addons/data/leaguetable.json';
+    $file_open = fopen($my_file , 'r');
+    echo fread($file_open,filesize($my_file));
+    fclose($file_open);
+    echo $args['after_widget'];
+  }
+
+}
+
+
 
 // LINKS WIDGET
 class nufcblog_links_widget extends WP_Widget {
@@ -168,11 +188,14 @@ class nufcblog_links_widget extends WP_Widget {
         'post_type' => 'links',
         'posts_per_page' => '50',
         'paged' => '1',
+        'post_status' => 'publish',
       );
       $status = new WP_Query($query);
       if($status->have_posts()) :
         while($status->have_posts()) : $status->the_post();
-          ?> <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> <?php the_title(); ?> </li><?php
+          $postid = get_the_ID();
+          $link = get_post_meta($postid, '_href_value_key' ,true)
+          ?> <li class="footer-link"><i class="fa fa-futbol-o" aria-hidden="true"></i> <a href="<?php echo $link ?>" class="single-footer-link" target="_blank"> <?php the_title(); ?></a> </li><?php
       endwhile;
       endif;
       wp_reset_postdata();
@@ -194,6 +217,11 @@ add_action('widgets_init', function() {
 //Initialization of Health Update widget
 add_action('widgets_init', function() {
   register_widget( 'nufcblog_health_status_widget' );
+});
+
+//Initialization of Health Update widget
+add_action('widgets_init', function() {
+  register_widget( 'nufcblog_table_widget' );
 });
 
 ?>

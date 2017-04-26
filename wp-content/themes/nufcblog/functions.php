@@ -82,7 +82,7 @@ function nufcblog_init_footer_links_widgets ($id) {
     'before_widget' => '<div class="blogroll">',
     'after_widget' => '</ul></div>',
     'before_title' => '<h4 class="footer-header">',
-    'after_title' => '</h4><ul class="list-unstyled">'
+    'after_title' => '</h4><ul class="list-unstyled footer-links">'
   ));
 }
 // INITIALIZATION OF FOOTER LINKS WIDGET

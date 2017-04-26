@@ -29,7 +29,18 @@
                   <?php endif; ?>
                 </div>
                 <div class="article-content-text">
-                <p><?php the_content(); ?></p>
+                <p><?php
+                the_content();
+
+
+                // nastepny i poprzedni post do rozpracowania                next_post_link();
+                previous_post_link();
+                next_post_link();
+
+
+
+
+                ?></p>
                 </div>
               </div>
             </div>
