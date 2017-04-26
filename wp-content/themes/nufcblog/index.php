@@ -1,8 +1,4 @@
 <?php get_header(); ?>
-  <div class="break-white"></div>
-  <div class="break-white"></div>
-
-
 
   <!-- PLACE TO PUT MOST POPULAR SECTION IS HERE -->
   <!-- the most popular posts section starts here -->
@@ -114,7 +110,7 @@
             <i class="fa fa-refresh" aria-hidden="true"></i> Load more</a>
         </div>
         <div class="break-white"></div>
-        
+
       </div>
       <!-- LATEST NEWS SECTION ENDS HERE -->
 

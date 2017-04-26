@@ -41,7 +41,20 @@ class nufcblog_health_status_widget extends WP_Widget {
           the_content();
 
 
-      endwhile;
+        endwhile;
+      else: ?>
+        <p>Unfortunately I was diagnosed with stage 4 prostate cancer in February and started hormone treatment back on 6th March</p>
+
+        <p>My doctors have also recommended chemotherapy treatment be done at the same time.</p>
+
+        <p>When the cancer has metastasized there's some evidence that both treatments done together may help longer term survival.</p>
+
+        <p>The first chemotherapy treatment is on 13th April (unlucky for some) and the plan is to continue that for the next four or five months.</p>
+
+        <p>Obviously I will do my best in the coming months.</p>
+
+        <p><strong>Ed Harrison</strong></p>
+      <?php
       endif;
       wp_reset_postdata();
     echo $args['after_widget'];

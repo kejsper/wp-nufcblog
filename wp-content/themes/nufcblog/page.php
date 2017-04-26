@@ -13,13 +13,6 @@
           </div>
         </div>
             <!-- ARTICLE -->
-            <div class="row">
-              <div class="col-12 single-info">
-                <span class="text-muted">
-                  <?php the_time('l, F jS, Y g:i a'); ?> by <?php the_author() ?> - <?php comments_number( 'No comments', '1 Comment', '% Comments' ); ?>
-                </span>
-              </div>
-            </div>
             <div class="row article-content">
               <div class="col-12">
                 <div class="article-photo-left">
@@ -31,26 +24,11 @@
                 <p><?php
                 the_content();
 
-
-                // nastepny i poprzedni post do rozpracowania                next_post_link();
-                previous_post_link();
-                next_post_link();
-
-
-
-
                 ?></p>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12 single-comment">
-                <?php if( comments_open() ){
-                  comments_template();
-                }
-                ?>
-              </div>
-            </div>
+
             <!-- END OF ARTICLE -->
             <div class="break-white"></div>
           <?php endwhile; ?>

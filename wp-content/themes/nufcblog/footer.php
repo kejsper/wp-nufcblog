@@ -22,18 +22,18 @@
         <!-- socials section -->
         <div class="socials">
           <h4 class="footer-header">social media</h4>
-          <a href="#" type="button" class="btn btn-info social-icon fb" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="#" type="button" class="btn btn-info social-icon tw" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-          <a href="#" type="button" class="btn btn-info social-icon gplus" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-          <a href="#" type="button" class="btn btn-info social-icon rss" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/The-Newcastle-United-Blog-159823257424834/" type="button" class="btn btn-info social-icon fb" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/thenufcblog" type="button" class="btn btn-info social-icon tw" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/+nufcblog" type="button" class="btn btn-info social-icon gplus" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+          <a href="http://feeds.feedburner.com/nufcblog" type="button" class="btn btn-info social-icon rss" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a>
         </div>
         <!-- end of socials section -->
         <!-- charity -->
         <div class="charity">
           <h4 class="footer-header">we support</h4>
-          <div><img src="<?php bloginfo('template_url'); ?>/img/nufcfoundation2.jpg" class="img-thumbnail charity-img" alt="Newcastle United Foundation"></div>
-          <div><img src="<?php bloginfo('template_url'); ?>/img/sirbobbyfoundation.png" class="img-thumbnail charity-img" alt="Sir Bobby Robson Foundation"></div>
-          <div><img src="<?php bloginfo('template_url'); ?>/img/alanshearerfoundation2.jpg" class="img-thumbnail charity-img" alt="Alan Shearer Foundation"></div>
+          <div><a href="http://www.nufoundation.org.uk/" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/nufcfoundation2.jpg" class="img-thumbnail charity-img" alt="Newcastle United Foundation"></a></div>
+          <div><a href="http://sirbobbyrobsonfoundation.org.uk/" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/sirbobbyfoundation.png" class="img-thumbnail charity-img" alt="Sir Bobby Robson Foundation"></a></div>
+          <div><a href="http://www.alanshearerfoundation.org.uk/" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/alanshearerfoundation2.jpg" class="img-thumbnail charity-img" alt="Alan Shearer Foundation"></a></div>
         </div>
         <!-- end of charity -->
 
@@ -45,7 +45,7 @@
         <?php if(is_active_sidebar('footer-links')): ?>
           <?php dynamic_sidebar('footer-links'); ?>
         <?php endif; ?>
-        
+
         <!-- end of links section -->
 
 

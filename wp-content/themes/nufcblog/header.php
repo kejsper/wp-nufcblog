@@ -70,3 +70,5 @@
     <!-- logo ends here -->
   </header>
   <!-- header section ends here -->
+  <div class="break-white"></div>
+  <div class="break-white"></div>
