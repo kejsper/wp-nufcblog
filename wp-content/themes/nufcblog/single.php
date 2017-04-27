@@ -6,27 +6,55 @@
   <div class="container">
     <div class="row">
       <!-- LATEST NEWS SECTION -->
-      <div class="col-12 col-lg-9 news">
-        <div class="row">
-          <div class="col-12 latest-header">
-            <h4><?php the_title(); ?></h4>
-          </div>
-        </div>
+      <div class="col-12 col-lg-9">
+        <h1 class="page-header"><?php the_title(); ?></h1>
+        <div class="page-line-article"></div>
             <!-- ARTICLE -->
             <div class="row">
               <div class="col-12 single-info">
-                <span class="text-muted">
-                  <?php the_time('l, F jS, Y g:i a'); ?> by <?php the_author() ?> - <?php comments_number( 'No comments', '1 Comment', '% Comments' ); ?>
-                </span>
+                <div class="row">
+                  <div class="col-lg-1 col-sx-3">
+                    <div class="row">
+                      <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+                    </div>
+                    <div class="row">
+                      <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-8 col-sx-4">
+                    <div class="row">
+                      <div class="col-12 article-author">
+                        <div class="author-icon">
+                          <i class="fa fa-pencil align-top" aria-hidden="true"></i>
+                        </div>
+                        <div class="author-name">
+                          <span class="align-top"><?php the_author() ?></span>
+                        </div>
+                        <div class="clear-both"></div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3"> <i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('g:ia'); ?></div>
+                      <div class="col-lg-9"> <i class="fa fa-calendar" aria-hidden="true"></i> <?php the_time('l, F jS, Y'); ?></div>
+
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-sx-4 article-comments-icon">
+                    <span class="align-top"><i class="fa fa-comments" aria-hidden="true"></i></span>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="page-line-article"></div>
             <div class="row article-content">
               <div class="col-12">
-                <div class="article-photo-left">
-                  <?php if(has_post_thumbnail()) : ?>
-                    <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
-                  <?php endif; ?>
+                <?php if(has_post_thumbnail()) : ?>
+                <div class="article-photo-bg" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
                 </div>
+                <?php endif; ?>
                 <div class="article-content-text">
                 <p><?php
                 the_content();

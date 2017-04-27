@@ -250,8 +250,8 @@ article {
   }
 }
 .single-info {
-  text-align: center;
-  padding: 15px 0;
+  text-align: left;
+  font-size: 0.9rem
 }
 
 .single-comment {
@@ -262,6 +262,51 @@ article {
 .article {
   padding-top: 10px;
   }
+
+.article-button-social {
+  background-color: #231F20;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: white;
+  border-radius: 0;
+  margin-bottom: 3px;
+  border: 0;
+  width: 41px;
+}
+.article-button-social:hover {
+  color: #231F20;
+  background-color: #F0B83D;
+}
+
+.article-author {
+  font-size: 30px;
+}
+.author-icon {
+  float: left;
+  font-size: 46px;
+  padding: 0 15px 0 10px;
+}
+
+.author-name {
+  float: left;
+  padding-left: 10px;
+}
+.clear-both {
+  clear:both;
+}
+
+
+.article-comments-icon {
+  font-size: 80px;
+  text-align: center;
+  line-height: 0;
+}
+
+.article-photo-bg {
+  height: 350px;
+  background-size: cover;
+  background-position: center center;
+}
 
 .article-photo {
   height: 250px;
@@ -423,6 +468,8 @@ a.loading:not([href]) {
   .sidebar-header h4 {
     color: white;
     font-family: 'Russo One', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
     letter-spacing: 1px;
     font-weight: 400; }
 
@@ -599,6 +646,13 @@ a.error404-link:hover{
   height: 2px;
   background-color: #00b6f1;
   margin: 10px auto 25px auto;
+}
+.page-line-article {
+  width: 100%%;
+  height: 2px;
+  background-color: #00b6f1;
+  margin: 10px 0 10px 0;
+  opacity: 0.5;
 }
 
 .page-header{
