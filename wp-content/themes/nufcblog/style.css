@@ -9,7 +9,7 @@ Text Domain: tylenda.com
 */
 
 /* often used */
-h4 {
+h4.header {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.25rem;
@@ -40,6 +40,7 @@ p:empty {
 
 .btn-read-more {
   background-color: #231F20;
+  color: white;
   border: 0;
   margin-top: 15px !important;
   padding: 8px 16px !important;
@@ -563,3 +564,55 @@ h4.footer-header {
   cursor: pointer; }
   #scrolltop i {
     color: white; }
+
+
+/*********************
+* CUSTOM PAGES
+*********************/
+
+/* ERROR 404 */
+a.error404 {
+  color: black;
+  font-size: 3rem;
+  display: block;
+
+}
+
+a.error404-link {
+  font-size: 2rem;
+  color:black;
+  display:block;
+}
+a.error404-link:hover{
+  text-decoration: none;
+}
+
+/* PAGE */
+.page-line {
+  width: 200px;
+  height: 2px;
+  background-color: #00b6f1;
+  margin: 10px 0 25px 0;
+}
+.page-line-center {
+  width: 200px;
+  height: 2px;
+  background-color: #00b6f1;
+  margin: 10px auto 25px auto;
+}
+
+.page-header{
+  font-size: 2.75rem;
+  color: black;
+
+}
+.page-content {
+  padding-right: 30px;
+  font-size: 1.15rem;
+
+}
+
+/* CONTACT */
+.btn-contact-send {
+  width: 180px;
+}

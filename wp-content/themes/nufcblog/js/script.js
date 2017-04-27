@@ -6,7 +6,6 @@ $(document).ready(function () {
   // Hiding last card in most popular on small devices
   cardAdjust.addClass('hidden-md-down');
 
-
   // runs fitvid function that adjust yt/vimeo vids to window size
   $('iframe[src*="youtube"]').parent().fitVids();
 

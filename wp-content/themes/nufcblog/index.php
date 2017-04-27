@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-12 popular-header">
         <div class="popular-header-text">
-          <h3>most popular</h3>
+          <h3 class="header">most popular</h3>
         </div>
         <div class="stripes">
 
@@ -74,7 +74,7 @@
       <div class="col-12 col-lg-9 news">
         <div class="row">
           <div class="col-12 latest-header">
-            <h3>latest news</h3>
+            <h3 class="header">latest news</h3>
           </div>
         </div>
 

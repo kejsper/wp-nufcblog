@@ -6,29 +6,18 @@
   <div class="container">
     <div class="row">
       <!-- LATEST NEWS SECTION -->
-      <div class="col-12 col-lg-9 news">
-        <div class="row">
-          <div class="col-12 latest-header">
-            <h4><?php the_title(); ?></h4>
-          </div>
-        </div>
-            <!-- ARTICLE -->
-            <div class="row article-content">
-              <div class="col-12">
-                <div class="article-photo-left">
-                  <?php if(has_post_thumbnail()) : ?>
-                    <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
-                  <?php endif; ?>
-                </div>
-                <div class="article-content-text">
-                <p><?php
-                the_content();
+      <div class="col-12 col-lg-9">
+        <h1 class="page-header"><?php the_title(); ?></h1>
+        <div class="page-line"></div>
+        <?php
+          if(has_post_thumbnail()) : ?>
+            <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
 
-                ?></p>
-                </div>
-              </div>
-            </div>
-
+        <?php
+          endif;
+        ?> <div class="text-justify page-content"> <?php
+          the_content();
+        ?> </div>
             <!-- END OF ARTICLE -->
             <div class="break-white"></div>
           <?php endwhile; ?>
