@@ -8,12 +8,13 @@
       <!-- LATEST NEWS SECTION -->
       <div class="col-12 col-lg-9">
         <h1 class="page-header"><?php the_title(); ?></h1>
-        <div class="page-line-article"></div>
-            <!-- ARTICLE -->
+        <div class="page-content">
+          <div class="page-line-article"></div>
+              <!-- ARTICLE -->
             <div class="row">
               <div class="col-12 single-info">
                 <div class="row">
-                  <div class="col-lg-1 col-sx-3">
+                  <div class="col-3 col-sm-2">
                     <div class="row">
                       <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
                     </div>
@@ -24,26 +25,22 @@
                       <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
                     </div>
                   </div>
-                  <div class="col-lg-8 col-sx-4">
+                  <div class="col-9 col-sm-10">
                     <div class="row">
-                      <div class="col-12 article-author">
-                        <div class="author-icon">
-                          <i class="fa fa-pencil align-top" aria-hidden="true"></i>
+                      <div class="col-12 article-author text-center">
+                        <div class="text-muted article-info-container">
+                          <span class="article-author-name hidden-xs-down">Written by </span>
+                          <span class="article-author-name"><?php the_author() ?></span>
                         </div>
-                        <div class="author-name">
-                          <span class="align-top"><?php the_author() ?></span>
+                        <div>
+                          <span class="article-time text-muted hidden-xs-down"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('g:ia'); ?></span>
+                          <span class="article-date text-muted"><i class="fa fa-calendar" aria-hidden="true"></i> <?php the_time('l, F jS, Y'); ?></span>
                         </div>
-                        <div class="clear-both"></div>
+                        <div>
+                          <span class="text-muted"><i class="fa fa-comment-o" aria-hidden="true"></i> Commented <?php comments_number( '% times', '% time', '% times' ); ?></span>
+                        </div>
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-lg-3"> <i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('g:ia'); ?></div>
-                      <div class="col-lg-9"> <i class="fa fa-calendar" aria-hidden="true"></i> <?php the_time('l, F jS, Y'); ?></div>
-
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-sx-4 article-comments-icon">
-                    <span class="align-top"><i class="fa fa-comments" aria-hidden="true"></i></span>
                   </div>
                 </div>
               </div>
@@ -56,19 +53,35 @@
                 </div>
                 <?php endif; ?>
                 <div class="article-content-text">
-                <p><?php
-                the_content();
-
-
-                // nastepny i poprzedni post do rozpracowania                next_post_link();
-                previous_post_link();
-                next_post_link();
-
-
-
-
-                ?></p>
+                  <p><?php
+                  the_content();
+                  ?></p>
                 </div>
+                <div class="break-white"></div>
+                <!-- PREVIOUS AND NEXT POST SECTION -->
+                <div class="row hidden-md-down">
+                  <div class="col-6 text-right">
+                    <span class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous Post</span>
+                    <span class="article-nav-link"><?php previous_post_link( '%link', '%title', TRUE, 'post_format' ); ?></span>
+                  </div>
+
+                  <div class="col-6 text-left next">
+                    <span class="article-nav"> Next Post <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    <span class="article-nav-link"><?php next_post_link('%link', '%title', TRUE, 'post_format'); ?> </span>
+                  </div>
+                </div>
+
+                <div class="row hidden-lg-up">
+                  <div class="col-6 text-right">
+                    <span class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> <?php previous_post_link( '%link', 'Previous Post', TRUE, 'post_format' ); ?></span>
+                  </div>
+                  <div class="col-6 text-left next">
+                    <span class="article-nav"> <?php next_post_link('%link', 'Next Post', TRUE, 'post_format'); ?>  <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                    
+                  </div>
+                </div>
+
+                <!-- END OF PREV AND NEXT SECTION -->
               </div>
             </div>
             <div class="row">
@@ -81,14 +94,12 @@
             </div>
             <!-- END OF ARTICLE -->
             <div class="break-white"></div>
-          <?php endwhile; ?>
-        <?php else : ?>
-          <p> <?php __('No posts found');  ?> </p>
-        <?php endif; ?>
-
-        <div class="break-white"></div>
-
-
+            <?php endwhile; ?>
+          <?php else : ?>
+            <p> <?php __('No posts found');  ?> </p>
+          <?php endif; ?>
+          <div class="break-white"></div>
+        </div>
       </div>
       <!-- LATEST NEWS SECTION ENDS HERE -->
 

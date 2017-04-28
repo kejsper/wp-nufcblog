@@ -256,7 +256,7 @@ article {
 
 .single-comment {
   text-align: center;
-  padding: 15px 40px;
+  padding: 15px 10px;
 }
 
 .article {
@@ -278,34 +278,45 @@ article {
   background-color: #F0B83D;
 }
 
+.article-info-container {
+  padding-top: 7px;
+}
+
 .article-author {
-  font-size: 30px;
-}
-.author-icon {
-  float: left;
-  font-size: 46px;
-  padding: 0 15px 0 10px;
-}
-
-.author-name {
-  float: left;
-  padding-left: 10px;
-}
-.clear-both {
-  clear:both;
-}
-
-
-.article-comments-icon {
-  font-size: 80px;
   text-align: center;
-  line-height: 0;
+}
+.article-author-name {
+  font-size: 20px;
+}
+
+.article-time {
+  margin-right: 10px;
 }
 
 .article-photo-bg {
   height: 350px;
   background-size: cover;
   background-position: center center;
+  margin-bottom: 15px;
+}
+
+.article-nav {
+  font-size: 1rem;
+  display: block;
+  color: #00b6f1;
+}
+.article-nav-link {
+  font-size: 0.9rem;
+  display: block;
+}
+.article-nav-link:hover {
+  font-size: 0.9rem;
+  display: block;
+  color: black;
+}
+
+.next {
+  border-left: 1px solid #80DBF8;
 }
 
 .article-photo {
@@ -660,10 +671,18 @@ a.error404-link:hover{
   color: black;
 
 }
-.page-content {
-  padding-right: 30px;
-  font-size: 1.15rem;
+@media screen and (min-width: 992px) {
+  .page-content {
+    padding-right: 20px;
+    font-size: 1.15rem;
+  }
+}
 
+@media screen and (max-width: 992px) {
+  .page-content {
+    padding-right: 0;
+    font-size: 1.05rem;
+  }
 }
 
 /* CONTACT */

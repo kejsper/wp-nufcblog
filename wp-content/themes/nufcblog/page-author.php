@@ -12,7 +12,7 @@
         <?php
           if(has_post_thumbnail()) : ?>
           <div class="container">
-            <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail" style="width: 100%">
+            <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
           </div>
         <?php
           endif;
