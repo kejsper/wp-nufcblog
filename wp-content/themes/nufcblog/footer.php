@@ -54,7 +54,7 @@
   </div>
   <!-- copyright section -->
   <div class="copyrights">
-    <h4 class="footer-header">Copyrights <?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></h4>
+    <h5 class="footer-header">Copyrights <?php echo Date('Y'); ?> - <?php bloginfo('name'); ?></h5>
 
   </div>
   <!-- end of copyright section -->

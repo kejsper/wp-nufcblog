@@ -92,11 +92,19 @@ function cron_tables_update() {
 
       }
 
+      if ($team['teamName'] == 'Newcastle') {
+        $fp = fopen(TEMPLATEPATH . "/addons/data/leaguetable.json", "a") or die('Cannot open the file');
+        $html = '<tr><td><b>'.$team['position'].'</b></td><td><b>'.$team['teamName'].'</b></td><td><b>'. $team['playedGames'].'</b></td><td><b>'. $team['goalDifference'].'</b></td><td><b>'. $team['points'].'</b></td></tr>';
+        fputs ($fp, "$html");
+        fclose ($fp);
 
-      $fp = fopen(TEMPLATEPATH . "/addons/data/leaguetable.json", "a") or die('Cannot open the file');
-      $html = '<tr><td>'.$team['position'].'</td><td>'.$team['teamName'].' </td><td>'. $team['playedGames'].' </td><td>'. $team['goalDifference'].' </td><td>'. $team['points'].'</td></tr>';
-      fputs ($fp, "$html");
-      fclose ($fp);
+      }
+      else {
+        $fp = fopen(TEMPLATEPATH . "/addons/data/leaguetable.json", "a") or die('Cannot open the file');
+        $html = '<tr><td>'.$team['position'].'</td><td>'.$team['teamName'].' </td><td>'. $team['playedGames'].' </td><td>'. $team['goalDifference'].' </td><td>'. $team['points'].'</td></tr>';
+        fputs ($fp, "$html");
+        fclose ($fp);
+      }
     }
     $fp = fopen(TEMPLATEPATH . "/addons/data/leaguetable.json", "a") or die('Cannot open the file');
     $foot = '</table>';

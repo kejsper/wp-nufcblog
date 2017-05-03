@@ -14,18 +14,8 @@
             <div class="row">
               <div class="col-12 single-info">
                 <div class="row">
-                  <div class="col-3 col-sm-2">
-                    <div class="row">
-                      <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
-                    </div>
-                    <div class="row">
-                      <div class="col-12"><a href="#" class="btn article-button-social"><i class="fa fa-google-plus" aria-hidden="true"></i></a></div>
-                    </div>
-                  </div>
-                  <div class="col-9 col-sm-10">
+
+                  <div class="col-12 col-sm-12">
                     <div class="row">
                       <div class="col-12 article-author text-center">
                         <div class="text-muted article-info-container">
@@ -77,7 +67,7 @@
                   </div>
                   <div class="col-6 text-left next">
                     <span class="article-nav"> <?php next_post_link('%link', 'Next Post', TRUE, 'post_format'); ?>  <i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    
+
                   </div>
                 </div>
 

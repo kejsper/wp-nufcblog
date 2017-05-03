@@ -5,8 +5,8 @@
       <?php if(has_post_thumbnail()) : ?>
         <div class="row article-content">
           <div class="col-12">
-            <div class="article-photo" style="background-image:  url('<?php the_post_thumbnail_url(); ?>')">
-            </div>
+            <a href="<?php the_permalink(); ?>"><div class="article-photo" style="background-image:  url('<?php the_post_thumbnail_url(); ?>')">
+            </div></a>
           </div>
         </div>
       <?php endif; ?>

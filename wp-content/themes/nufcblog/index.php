@@ -35,8 +35,8 @@
           <div class="card single-card">
             <div class="card-photo-wrapper">
               <?php if(has_post_thumbnail()) : ?>
-                <div class="card-photo" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-                </div>
+                <a href="<?php the_permalink(); ?>"><div class="card-photo" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+                </div></a>
               <?php endif; ?>
             </div>
             <div class="card-footer card-info">

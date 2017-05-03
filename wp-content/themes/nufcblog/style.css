@@ -189,7 +189,7 @@ nav {
           background-size: cover;
           background-position: center center;
           transition: 0.2s; }
-      .most-popular .card-group .single-card:hover .card-photo-wrapper .card-photo {
+      .most-popular .card-group .single-card .card-photo-wrapper .card-photo:hover {
         transition: 0.2s;
         transform: scale(1.1); }
       .most-popular .card-group .single-card .card-info {
@@ -279,7 +279,7 @@ article {
 }
 
 .article-info-container {
-  padding-top: 7px;
+
 }
 
 .article-author {
@@ -476,13 +476,13 @@ a.loading:not([href]) {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 20px; }
-  .sidebar-header h4 {
-    color: white;
-    font-family: 'Russo One', sans-serif;
-    font-size: 1.4rem;
-    margin-bottom: 0.3rem;
-    letter-spacing: 1px;
-    font-weight: 400; }
+h4.sidebar-header-text  {
+  color: white;
+  font-family: 'Russo One', sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+  font-weight: 400; }
 
 p.poll-question {
   font-family: 'Montserrat', sans-serif;
@@ -544,6 +544,14 @@ h4.footer-header {
   text-transform: uppercase;
   color: white;
   font-family: 'Russo One', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400; }
+
+h5.footer-header  {
+  color: white;
+  font-family: 'Russo One', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.1rem;
   letter-spacing: 1px;
   font-weight: 400; }
 
@@ -669,8 +677,16 @@ a.error404-link:hover{
 .page-header{
   font-size: 2.75rem;
   color: black;
-
 }
+
+.page-thumbnail {
+  height: 550px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 40px;
+}
+
 @media screen and (min-width: 992px) {
   .page-content {
     padding-right: 20px;

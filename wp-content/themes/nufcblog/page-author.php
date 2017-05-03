@@ -11,8 +11,8 @@
         <div class="page-line"></div>
         <?php
           if(has_post_thumbnail()) : ?>
-          <div class="container">
-            <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
+          <div class="container page-thumbnail" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+            
           </div>
         <?php
           endif;
