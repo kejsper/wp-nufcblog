@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="<?php bloginfo('description'); ?>">
   <meta name="author" content="Ed Harrison">
+  <meta name="keywords"  content="Newcastle United, Magpies, UK, England, Newcastle, Premier, Premier League, nufc, nufcblog, League, Football, Championship, Soccer, Champions League, Europa League, St. James&#039; Park,  UEFA, Tyneside, FA, Geordie, Geordies, fans, blog, MLS" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
     <?php bloginfo('name'); ?> |
@@ -15,6 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <?php wp_head(); ?>
 </head>
 <body>

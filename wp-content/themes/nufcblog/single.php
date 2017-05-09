@@ -7,8 +7,13 @@
     <div class="row">
       <!-- LATEST NEWS SECTION -->
       <div class="col-12 col-lg-9">
+
         <h1 class="page-header"><?php the_title(); ?></h1>
         <div class="page-content">
+          <?php if(has_post_thumbnail()) : ?>
+          <div class="article-photo-bg" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+          </div>
+          <?php endif; ?>
           <div class="page-line-article"></div>
               <!-- ARTICLE -->
             <div class="row">
@@ -38,10 +43,7 @@
             <div class="page-line-article"></div>
             <div class="row article-content">
               <div class="col-12">
-                <?php if(has_post_thumbnail()) : ?>
-                <div class="article-photo-bg" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-                </div>
-                <?php endif; ?>
+                <!-- TUTAJ BYLO ZDJECIE -->
                 <div class="article-content-text">
                   <p><?php
                   the_content();
@@ -49,15 +51,53 @@
                 </div>
                 <div class="break-white"></div>
                 <!-- PREVIOUS AND NEXT POST SECTION -->
+                <?php
+                if ( $prev = get_previous_post(true) ) {
+                  $prev_title = $prev->post_title;
+                  $prev_ex_con = ( $prev->post_excerpt ) ? $prev->post_excerpt : strip_shortcodes( $prev->post_content );
+                  $prev_text = wp_trim_words( apply_filters( 'the_excerpt', $prev_ex_con ), 32 );
+                }
+                if ( $next = get_next_post(true) ) {
+                  $next_title = $next->post_title;
+                  $next_ex_con = ( $next->post_excerpt ) ? $next->post_excerpt : strip_shortcodes( $next->post_content );
+                  $next_text = wp_trim_words( apply_filters( 'the_excerpt', $next_ex_con ), 32 );
+                }
+                ?>
                 <div class="row hidden-md-down">
-                  <div class="col-6 text-right">
-                    <span class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous Post</span>
-                    <span class="article-nav-link"><?php previous_post_link( '%link', '%title', TRUE, 'post_format' ); ?></span>
+                  <div class="col-4 text-right prev">
+                    <?php if(!empty($prev)): ?>
+                      <a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>">
+                        <span class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous Post</span>
+                        <span class="article-nav-link-title">
+                          <strong><?php echo $prev_title; ?></strong><br>
+                        </span>
+                        <span class="article-nav-link">
+                          <?php echo $prev_text; ?>
+                        </span>
+                      </a>
+                    <?php endif; ?>
                   </div>
 
-                  <div class="col-6 text-left next">
-                    <span class="article-nav"> Next Post <i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                    <span class="article-nav-link"><?php next_post_link('%link', '%title', TRUE, 'post_format'); ?> </span>
+                  <div class="col-4 text-center">
+                    <a href="<?php echo site_url(); ?>">
+                      <span class="article-nav"> [ Home Page ]</span>
+
+                      <img src="<?php bloginfo('template_url'); ?>/img/nufclogo.png" class="img-thumbnail mx-auto" alt="Newcastle United logo" style="max-height: 210px;">
+                    </a>
+                  </div>
+
+                  <div class="col-4 text-left next">
+                    <?php if(!empty($next)): ?>
+                      <a href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>">
+                        <span class="article-nav"> Next Post <i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        <span class="article-nav-link-title">
+                          <strong><?php echo $next_title; ?></strong><br>
+                        </span>
+                        <span class="article-nav-link">
+                          <?php echo $next_text; ?>
+                        </span>
+                      </a>
+                    <?php endif; ?>
                   </div>
                 </div>
 
@@ -70,7 +110,7 @@
 
                   </div>
                 </div>
-
+                <div class="break-white"></div>
                 <!-- END OF PREV AND NEXT SECTION -->
               </div>
             </div>
