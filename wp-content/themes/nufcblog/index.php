@@ -2,7 +2,7 @@
 
   <!-- PLACE TO PUT MOST POPULAR SECTION IS HERE -->
   <!-- the most popular posts section starts here -->
-  <div class="container most-popular">
+  <div class="container most-popular hidden-sm-down">
     <div class="row">
       <div class="col-12 popular-header">
         <div class="popular-header-text">
@@ -19,7 +19,7 @@
     <?php
       $args = array(
         'date_query' => array(
-          'after' => '2 weeks ago',
+          'after' => 'midnight 3 days ago',
           'before' => 'today',
           'inclusive' => true,
         ),
@@ -64,8 +64,22 @@
     </div>
   </div>
   <!-- the most popular posts section ends here -->
+
+  <!-- PIXFUTURE AD STARTS HERE -->
+  <div class="pixfuture-wrapper">
+    <div id="leaderboard-pixfuture" class="container break-white-ad-pix">
+      <script type="text/javascript">
+        if (!window.OX_ads) { OX_ads = []; }
+          OX_ads.push({ "auid" : "537654077" });
+        </script>
+        <script type="text/javascript">
+          document.write('<scr'+'ipt src="http://ax-d.pixfuture.net/w/1.0/jstag"><\/scr'+'ipt>');
+        </script>
+        <noscript><iframe id="19878e3eb7" name="19878e3eb7" src="http://ax-d.pixfuture.net/w/1.0/afr?auid=537654077&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ax-d.pixfuture.net/w/1.0/rc?cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ax-d.pixfuture.net/w/1.0/ai?auid=537654077&cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+    </div>
+  </div>
   <div class="break-white"></div>
-  <div class="break-white"></div>
+  <!-- PIXFUTURE AD ENDS HERE -->
 
   <!-- CONTENT -->
   <div class="container">
@@ -125,6 +139,4 @@
     </div>
   </div>
   <!-- CONTENT ENDS HERE -->
-  <div class="break-white"></div>
-  <div class="break-white"></div>
   <?php get_footer(); ?>

@@ -1,5 +1,25 @@
 <?php get_header(); ?>
 
+  <!-- PIXFUTURE SINGLE POST AD -->
+  <div class="pixfuture-wrapper">
+  <div id="leaderboard-pixfuture" class="container break-white-ad-pix">
+
+    <script type="text/javascript">
+      if (!window.OX_ads) { OX_ads = []; }
+        OX_ads.push({ "auid" : "537654077" });
+      </script>
+      <script type="text/javascript">
+        document.write('<scr'+'ipt src="http://ax-d.pixfuture.net/w/1.0/jstag"><\/scr'+'ipt>');
+      </script>
+      <noscript><iframe id="19878e3eb7" name="19878e3eb7" src="http://ax-d.pixfuture.net/w/1.0/afr?auid=537654077&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ax-d.pixfuture.net/w/1.0/rc?cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ax-d.pixfuture.net/w/1.0/ai?auid=537654077&cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+  </div>
+
+  </div>
+  <div class="break-white"></div>
+
+  <!-- END OF PIXFUTURE AD -->
+
+
   <!-- CONTENT -->
   <?php if(have_posts()) : ?>
     <?php while(have_posts()) : the_post() ?>
@@ -50,67 +70,7 @@
                   ?></p>
                 </div>
                 <div class="break-white"></div>
-                <!-- PREVIOUS AND NEXT POST SECTION -->
-                <?php
-                if ( $prev = get_previous_post(true) ) {
-                  $prev_title = $prev->post_title;
-                  $prev_ex_con = ( $prev->post_excerpt ) ? $prev->post_excerpt : strip_shortcodes( $prev->post_content );
-                  $prev_text = wp_trim_words( apply_filters( 'the_excerpt', $prev_ex_con ), 32 );
-                }
-                if ( $next = get_next_post(true) ) {
-                  $next_title = $next->post_title;
-                  $next_ex_con = ( $next->post_excerpt ) ? $next->post_excerpt : strip_shortcodes( $next->post_content );
-                  $next_text = wp_trim_words( apply_filters( 'the_excerpt', $next_ex_con ), 32 );
-                }
-                ?>
-                <div class="row hidden-md-down">
-                  <div class="col-4 text-right prev">
-                    <?php if(!empty($prev)): ?>
-                      <a href="<?php echo esc_url( get_permalink( $prev->ID ) ); ?>">
-                        <span class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous Post</span>
-                        <span class="article-nav-link-title">
-                          <strong><?php echo $prev_title; ?></strong><br>
-                        </span>
-                        <span class="article-nav-link">
-                          <?php echo $prev_text; ?>
-                        </span>
-                      </a>
-                    <?php endif; ?>
-                  </div>
 
-                  <div class="col-4 text-center">
-                    <a href="<?php echo site_url(); ?>">
-                      <span class="article-nav"> [ Home Page ]</span>
-
-                      <img src="<?php bloginfo('template_url'); ?>/img/nufclogo.png" class="img-thumbnail mx-auto" alt="Newcastle United logo" style="max-height: 210px;">
-                    </a>
-                  </div>
-
-                  <div class="col-4 text-left next">
-                    <?php if(!empty($next)): ?>
-                      <a href="<?php echo esc_url( get_permalink( $next->ID ) ); ?>">
-                        <span class="article-nav"> Next Post <i class="fa fa-angle-right" aria-hidden="true"></i></span>
-                        <span class="article-nav-link-title">
-                          <strong><?php echo $next_title; ?></strong><br>
-                        </span>
-                        <span class="article-nav-link">
-                          <?php echo $next_text; ?>
-                        </span>
-                      </a>
-                    <?php endif; ?>
-                  </div>
-                </div>
-
-                <div class="row hidden-lg-up">
-                  <div class="col-6 text-right">
-                    <span class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> <?php previous_post_link( '%link', 'Previous Post', TRUE, 'post_format' ); ?></span>
-                  </div>
-                  <div class="col-6 text-left next">
-                    <span class="article-nav"> <?php next_post_link('%link', 'Next Post', TRUE, 'post_format'); ?>  <i class="fa fa-angle-right" aria-hidden="true"></i></span>
-
-                  </div>
-                </div>
-                <div class="break-white"></div>
                 <!-- END OF PREV AND NEXT SECTION -->
               </div>
             </div>

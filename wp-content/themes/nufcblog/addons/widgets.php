@@ -172,6 +172,87 @@ class nufcblog_table_widget extends WP_Widget {
 }
 
 
+// ADS WIDGET
+class nufcblog_ads_widget extends WP_Widget {
+  //setup widget Description
+  public function __construct() {
+    $widget_ops = array(
+      'classname' => 'ads-widget',
+      'description' => 'Sidebar Ads Widget',
+    );
+    parent::__construct( 'ads_widget', 'Ads Widget', $widget_ops );
+  }
+
+  //Back-end display of widget
+  public function form( $instance ) {
+    echo '<p>This widget will display 1 AdSense Ad and 1 Pixfutue ad in the right column of the page.</p>';
+  }
+
+  // Front-end display of widget
+  public function widget( $args, $instance ) {
+
+    echo $args['before_widget'];
+
+    echo $args['before_title'] . 'ads' . $args['after_title']; ?>
+    <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Small Square -->
+    <ins class="adsbygoogle"
+       style="display:inline-block;width:200px;height:200px"
+       data-ad-client="ca-pub-1875437023224247"
+       data-ad-slot="5519768623"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <div class="sidebar-pix">
+    <div id="537654075_INSERT_SLOT_ID_HERE" style="width:160px;height:600px;margin:0 auto;padding:0; display: block;"></div>
+        <script type="text/javascript">
+          var OX_ads = OX_ads || []
+          OX_ads.push({
+             slot_id: "537654075_INSERT_SLOT_ID_HERE",
+             auid: "537654075"
+          });
+        </script>
+        <script type="text/javascript" src="http://ax-d.pixfuture.net/w/1.0/jstag"></script>
+    </div>
+    <?php echo $args['after_widget'];
+  }
+
+}
+
+// NEWSNOW WIDGET
+class nufcblog_newsnow_widget extends WP_Widget {
+  //setup widget Description
+  public function __construct() {
+    $widget_ops = array(
+      'classname' => 'newsnow-widget',
+      'description' => 'Sidebar NewsNow Widget',
+    );
+    parent::__construct( 'newsnow_widget', 'News Now Widget', $widget_ops );
+  }
+
+  //Back-end display of widget
+  public function form( $instance ) {
+    echo '<p>This widget will display NewsNow banner in the right column of the page.</p>';
+  }
+
+  // Front-end display of widget
+  public function widget( $args, $instance ) {
+
+    echo $args['before_widget'];
+
+    echo $args['before_title'] . 'news now' . $args['after_title']; ?>
+    <div class="container newsnow">
+      <div class="newsnowlogo" title="Click here for more Newcastle United news from NewsNow">
+        <a class="newsnowlogo_a" href="http://www.newsnow.co.uk/h/Sport/Football/Premier+League/Newcastle+United" target="_blank" style="color:#444;text-decoration:underline;border:0;">
+          <img src="http://www.nufcblog.com/wp-content/themes/cutline-3-column-split-11/images/newsnow_ab.gif" style="width:119px;height:47px;border:0;display:block;padding-bottom:2px" alt="As featured on NewsNow: Newcastle United news"/>
+          NUFC News 24/7
+        </a>
+      </div>
+    </div>
+    <?php echo $args['after_widget'];
+  }
+
+}
 
 // LINKS WIDGET
 class nufcblog_links_widget extends WP_Widget {
@@ -232,9 +313,19 @@ add_action('widgets_init', function() {
   register_widget( 'nufcblog_health_status_widget' );
 });
 
-//Initialization of Health Update widget
+//Initialization of League Table widget
 add_action('widgets_init', function() {
   register_widget( 'nufcblog_table_widget' );
+});
+
+//Initialization of Ads Widget
+add_action('widgets_init', function() {
+  register_widget( 'nufcblog_ads_widget' );
+});
+
+//Initialization of NewsNow Widget
+add_action('widgets_init', function() {
+  register_widget( 'nufcblog_newsnow_widget' );
 });
 
 ?>

@@ -1,0 +1,13 @@
+[26-May-2007 05:51:04] PHP Fatal error:  Call to undefined function:  is_plugin_page() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/ca-extcat.php on line 17
+[26-May-2007 05:51:10] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/comment-live-preview.php on line 19
+[26-May-2007 05:51:16] PHP Fatal error:  Call to undefined function:  get_option() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/commentcontrol.php on line 23
+[26-May-2007 05:51:22] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/custom-query-string.php on line 64
+[26-May-2007 05:51:40] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/filosofo-uncheck-default-category.php on line 80
+[26-May-2007 05:51:51] PHP Fatal error:  Call to undefined function:  add_filter() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/full_feed.php on line 24
+[26-May-2007 05:51:57] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/get-recent-comments.php on line 1130
+[26-May-2007 05:52:03] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/head-meta-desc.php on line 76
+[26-May-2007 05:52:21] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/related-posts.php on line 288
+[26-May-2007 05:52:35] PHP Fatal error:  Call to undefined function:  get_option() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/sitemap.php on line 343
+[26-May-2007 05:53:06] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/subscribe-to-comments.php on line 807
+[26-May-2007 05:53:43] PHP Fatal error:  Call to undefined function:  is_single() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/yaapn.php on line 87
+[26-May-2007 05:53:52] PHP Fatal error:  Call to undefined function:  add_action() in /home/ahmedbil/public_html/nufcblog/wp-content/plugins/ylsy_permalink_redirect.php on line 249

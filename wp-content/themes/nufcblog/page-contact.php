@@ -34,7 +34,7 @@
 
         } else {
           //passed
-          $sendToEmail = 'kejsper@gmail.com';
+          $sendToEmail = 'admin@nufcblog.com';
           $subject = '[' . $subject . '] Contact Request from: ' . $name;
           $body = '<h3>Request from email: ' . $email . '</h3>
             <p>'.$message.'</p>';

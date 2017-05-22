@@ -6,6 +6,7 @@ require_once(get_template_directory().'/addons/widgets.php');
 require_once(get_template_directory().'/addons/ajax.php');
 require_once(get_template_directory().'/addons/links-plugin.php');
 require_once(get_template_directory().'/addons/cron-tables.php');
+require_once(get_template_directory().'/addons/random-background.php');
 
 function nufcblog_theme_setup () {
   // Setting up navigation menus
@@ -55,9 +56,6 @@ function nufcblog_excerpt_more($more) {
    return ' <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '">'. __('[...]', 'nufcblog') .'</a>';
 }
 add_filter('excerpt_more', 'nufcblog_excerpt_more');
-
-
-
 
 
 // Setting up sidebar widgets
