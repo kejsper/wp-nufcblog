@@ -811,7 +811,7 @@ a.error404-link:hover{
 
 .sidebar-pix {
   width:100%;
-  display: block;"
+  display: block;
 }
 
 .sidebar-pix iframe {
@@ -821,6 +821,8 @@ a.error404-link:hover{
 
 .pixfuture-wrapper {
   width: 100%;
+  max-height: 90px;
+  overflow: hidden;
   display: block;
 }
 
@@ -831,43 +833,44 @@ a.error404-link:hover{
 
 #pp_ad_container_0 iframe {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto !important;
 }
 
 #leaderboard-pixfuture {
   text-align: center;
+  overflow: hidden;
 }
 
 @media all and (min-device-width: 700px) and (max-device-width: 728px) {
-  #leaderboard-pixfuture {transform: scale(0.9);}}
+  #leaderboard-pixfuture {transform: scale(0.8);}}
 @media all and (min-device-width: 671px) and (max-device-width: 699px) {
-  #leaderboard-pixfuture {transform: scale(0.9);transform-origin: 0 0;}}
+  #leaderboard-pixfuture {transform: scale(0.8);transform-origin: 0 0;}}
 @media all and (min-device-width: 651px) and (max-device-width: 670px) {
-  #leaderboard-pixfuture {transform: scale(0.88);transform-origin: 0 0;}}
+  #leaderboard-pixfuture {transform: scale(0.78);transform-origin: 0 0;}}
 @media all and (min-device-width: 631px) and (max-device-width: 650px) {
-  #leaderboard-pixfuture {transform: scale(0.85);transform-origin: 0 0;}}
-@media all and (min-device-width: 601px) and (max-device-width: 630px) {
-  #leaderboard-pixfuture {transform: scale(0.8);transform-origin: 0 0;}}
-@media all and (min-device-width: 601px) and (max-device-width: 630px) {
-  #leaderboard-pixfuture {transform: scale(0.8);transform-origin: 0 0;}}
-@media all and (min-device-width: 560px) and (max-device-width: 600px) {
   #leaderboard-pixfuture {transform: scale(0.75);transform-origin: 0 0;}}
-@media all and (min-device-width: 520px) and (max-device-width: 559px) {
+@media all and (min-device-width: 601px) and (max-device-width: 630px) {
   #leaderboard-pixfuture {transform: scale(0.7);transform-origin: 0 0;}}
-@media all and (min-device-width: 491px) and (max-device-width: 519px) {
+@media all and (min-device-width: 601px) and (max-device-width: 630px) {
+  #leaderboard-pixfuture {transform: scale(0.7);transform-origin: 0 0;}}
+@media all and (min-device-width: 560px) and (max-device-width: 600px) {
   #leaderboard-pixfuture {transform: scale(0.65);transform-origin: 0 0;}}
-@media all and (min-device-width: 451px) and (max-device-width: 490px) {
+@media all and (min-device-width: 520px) and (max-device-width: 559px) {
   #leaderboard-pixfuture {transform: scale(0.6);transform-origin: 0 0;}}
-@media all and (min-device-width: 401px) and (max-device-width: 450px) {
+@media all and (min-device-width: 491px) and (max-device-width: 519px) {
   #leaderboard-pixfuture {transform: scale(0.55);transform-origin: 0 0;}}
-@media all and (min-device-width: 371px) and (max-device-width: 400px) {
+@media all and (min-device-width: 451px) and (max-device-width: 490px) {
   #leaderboard-pixfuture {transform: scale(0.5);transform-origin: 0 0;}}
-@media all and (min-device-width: 341px) and (max-device-width: 370px) {
-  #leaderboard-pixfuture {transform: scale(0.46);transform-origin: 0 0;}}
-@media all and (min-device-width: 301px) and (max-device-width: 340px) {
-  #leaderboard-pixfuture {transform: scale(0.42);transform-origin: 0 0;}}
-@media all and (max-device-width: 300px) {
+@media all and (min-device-width: 401px) and (max-device-width: 450px) {
+  #leaderboard-pixfuture {transform: scale(0.45);transform-origin: 0 0;}}
+@media all and (min-device-width: 371px) and (max-device-width: 400px) {
   #leaderboard-pixfuture {transform: scale(0.4);transform-origin: 0 0;}}
+@media all and (min-device-width: 341px) and (max-device-width: 370px) {
+  #leaderboard-pixfuture {transform: scale(0.36);transform-origin: 0 0;}}
+@media all and (min-device-width: 301px) and (max-device-width: 340px) {
+  #leaderboard-pixfuture {transform: scale(0.32);transform-origin: 0 0;}}
+@media all and (max-device-width: 300px) {
+  #leaderboard-pixfuture {transform: scale(0.3);transform-origin: 0 0;}}
 
 
 /* COMMENTS SECTION */

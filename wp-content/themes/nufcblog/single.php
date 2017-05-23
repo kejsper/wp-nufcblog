@@ -15,8 +15,6 @@
   </div>
 
   </div>
-  <div class="break-white"></div>
-
   <!-- END OF PIXFUTURE AD -->
 
 
@@ -105,5 +103,5 @@
   </div>
   <!-- CONTENT ENDS HERE -->
   <div class="break-white"></div>
-  <div class="break-white"></div>
+
   <?php get_footer(); ?>

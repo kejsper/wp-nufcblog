@@ -1,16 +1,11 @@
 <?php // Do not delete these lines
-	if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
-		die ('Please do not load this page directly. Thanks!');
+	if ('comments.php' == basename($_SERVER['SCRIPT_FILENAME']))		die ('Please do not load this page directly. Thanks!');
         if (!empty($post->post_password)) { // if there's a password
+            if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) {  // and it doesn't match the cookie
+	?>
+		<p class="center"><?php _e("This post is password protected. Enter the password to view comments."); ?></p>
 
-            if ($_COOKIE['wp-postpass_' . COOKIEHASH] != $post->post_password) {  // and it doesn't match the cookie
-	?>
-
-		<p class="center"><?php _e("This post is password protected. Enter the password to view comments."); ?><p>
-
 <?php	return; } }
-
-
 	/* Function for separating comments from track- and pingbacks. */
 	function k2_comment_type_detection($commenttxt = 'Comment', $trackbacktxt = 'Trackback', $pingbacktxt = 'Pingback') {
 		global $comment;
@@ -21,12 +16,9 @@
 		else
 			return $commenttxt;
 	}
-
-	$templatedir = get_bloginfo('template_directory');
-
-	$comment_number = 1;
+	$templatedir = get_bloginfo('template_directory');	$comment_number = 1;
+
 ?>
-
 <!-- You can start editing here. -->
 <!-- PREVIOUS AND NEXT POST SECTION -->
 <?php
@@ -84,7 +76,7 @@ if ( $next = get_next_post(false) ) {
 <div class="row hidden-lg-up">
 	<div class="col-6 text-right">
 		<?php if(!empty($prev)): ?>
-			<a href="<?php echo prev_permalink; ?>">
+			<a href="<?php echo $prev_permalink; ?>">
 				<span class="article-nav">
 					<i class="fa fa-angle-left" aria-hidden="true"></i>
 					Previous Post
@@ -112,13 +104,15 @@ if ( $next = get_next_post(false) ) {
 	<?php if ($comments) { ?>
 		<?php $count_pings = 1; foreach ($comments as $comment) { ?>
 		<li class="comment <?php if (k2_comment_type_detection() != "Comment") { echo('trackback'); } ?>" id="comment-<?php comment_ID() ?>">
-			<div class="container col-12">
-				<div class="row" style="margin-bottom: 15px">
-					<div class="col-1"><span class="comment_num">
-						<a href="#comment-<?php comment_ID() ?>" title="Permalink to this comment"><?php echo($comment_number); ?></a></span>
+			<div class="row container">
+				<div class="col-12">
+					<div class="row" style="margin-bottom: 15px">
+						<div class="col-1"><span class="comment_num">
+							<a href="#comment-<?php comment_ID() ?>" title="Permalink to this comment"><?php echo($comment_number); ?></a></span>
+						</div>
+						<div class="col-6"><strong><?php comment_author_link() ?> </strong></div>
+						<div class="col-5"><span class="comment_time text-muted"><small> <?php comment_date('M j, Y') ?> at <?php comment_time() ?> </small></span></div>
 					</div>
-					<div class="col-6"><strong><?php comment_author_link() ?> </strong></div>
-					<div class="col-5"><span class="comment_time text-muted"><small> <?php comment_date('M j, Y') ?> at <?php comment_time() ?> </small></span></div>
 				</div>
 			</div>
 			<div class="row">
@@ -132,7 +126,7 @@ if ( $next = get_next_post(false) ) {
 			</div>
 		</li>
 		<?php $comment_number++; } /* end for each comment */ ?>
-	</ul>
+
 	<?php } else { // this is displayed if there are no comments so far ?>
 		<?php if ('open' == $post-> comment_status) { ?>
 			<!-- If comments are open, but there are no comments. -->
@@ -155,7 +149,7 @@ if ( $next = get_next_post(false) ) {
 	</ul>
 	<?php } ?>
 
-	<br /><br /><br />
+	<!-- Start -  Adsense Responsive Ad2  -->	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>	<!-- Responsive Ad 2 -->	<ins class="adsbygoogle"	     style="display:block"	     data-ad-client="ca-pub-1875437023224247"	     data-ad-slot="4322237029"	     data-ad-format="auto"></ins>	<script>	(adsbygoogle = window.adsbygoogle || []).push({});	</script>	<!-- End -  Adsense Responsive Ad2 -->	<!-- PIXFUTURE AD STARTS HERE -->	<div class="pixfuture-wrapper">	    <div id="leaderboard-pixfuture" class="container break-white-ad-pix">	      <script type="text/javascript">	        if (!window.OX_ads) { OX_ads = []; }	          OX_ads.push({ "auid" : "537654077" });	      </script>	        <script type="text/javascript">	          document.write('<scr'+'ipt src="http://ax-d.pixfuture.net/w/1.0/jstag"><\/scr'+'ipt>');	        </script>	        <noscript><iframe id="19878e3eb7" name="19878e3eb7" src="http://ax-d.pixfuture.net/w/1.0/afr?auid=537654077&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ax-d.pixfuture.net/w/1.0/rc?cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ax-d.pixfuture.net/w/1.0/ai?auid=537654077&cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>	    </div>	  </div>	  <div class="break-white"></div>	  <!-- PIXFUTURE AD ENDS HERE -->
 	<!-- Comment Form -->
 	<?php if ('open' == $post-> comment_status) : ?>
 		<?php if ( get_option('comment_registration') && !$user_ID ) : ?>			<p class="unstyled">You must <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php the_permalink(); ?>">log in</a> to post a comment.</p>
@@ -170,9 +164,9 @@ if ( $next = get_next_post(false) ) {
 				<p><input class="text_input" type="text" name="author" id="author" value="<?php echo $comment_author; ?>" tabindex="1" /><label for="author"><strong>Name</strong></label></p>
 				<p><input class="text_input" type="text" name="email" id="email" value="<?php echo $comment_author_email; ?>" tabindex="2" /><label for="email"><strong>Mail</strong></label></p>
 				<p><input class="text_input" type="text" name="url" id="url" value="<?php echo $comment_author_url; ?>" tabindex="3" /><label for="url"><strong>Website</strong></label></p>
-			<?php } ?>
-				<!--<p><small><strong>XHTML:</strong> You can use these tags: <?php echo allowed_tags(); ?></small></p>-->
-				<p><textarea class="form-control" name="comment" id="comment" rows="8" tabindex="4"></textarea></p>
+			<?php } ?>				<!--<p><small><strong>XHTML:</strong> You can use these tags: <?php echo allowed_tags(); ?></small></p>-->
+				<p><textarea class="form-control" name="comment" id="comment" rows="8" tabindex="4"></textarea></p>
+
 				<?php if (function_exists('show_subscription_checkbox')) { show_subscription_checkbox(); } ?>
 				<p>					<input name="submit" class="form_submit" type="submit" id="submit" src="<?php bloginfo('template_url') ?>/images/submit_comment.gif" tabindex="5" value="Submit" />
 
@@ -187,7 +181,7 @@ if ( $next = get_next_post(false) ) {
 <!-- Close #comments container --><div class="row">
 	<div class="col-6 text-right">
 		<?php if(!empty($prev)): ?>
-			<a href="<?php echo prev_permalink; ?>">
+			<a href="<?php echo $prev_permalink; ?>">
 				<span class="article-nav">
 					<i class="fa fa-angle-left" aria-hidden="true"></i>
 					Previous Post
@@ -208,6 +202,5 @@ if ( $next = get_next_post(false) ) {
 </div>
 <!-- END OF PREV AND NEXT SECTION -->
 <div class="clear flat">
-
 </div>
 <?php } ?>
