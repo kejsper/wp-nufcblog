@@ -1,15 +1,13 @@
 <!-- RESPONSIVE AD 2 - AD SENSE -->
 <div class="container break-white-ad">
   <div id="leaderboard-pixfuture">
-    <div id="537654077_1" style="width:728px;height:90px;margin:0;padding:0"></div>
     <script type="text/javascript">
-      var OX_ads = OX_ads || []
-      OX_ads.push({
-         slot_id: "537654077_1",
-         auid: "537654077"
-      });
+      if (!window.OX_ads) { OX_ads = []; }
+      OX_ads.push({ "auid" : "537654077" });
     </script>
-    <script type="text/javascript" src="http://ax-d.pixfuture.net/w/1.0/jstag"></script>
+    <script type="text/javascript">
+      document.write('<scr'+'ipt src="//ax-d.pixfuture.net/w/1.0/jstag"><\/scr'+'ipt>');
+    </script>
   </div>
 </div>
 <!-- RESPONSIVE AD 2 - ENDS HERE -->
