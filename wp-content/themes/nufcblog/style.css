@@ -18,8 +18,8 @@ h4.header {
 a {
   color: black;
 }
-
 a:hover {
+  color: black;
   text-decoration: none;
 }
 
@@ -331,6 +331,12 @@ article {
   color: #00b6f1;
 }
 
+.article-nav:hover {
+  font-size: 1.05rem;
+  display: block;
+  color: #00b6f1;
+}
+
 @media screen and (min-width: 1200px) {
   .article-nav {
     margin-bottom: 10px;
@@ -363,6 +369,13 @@ article {
   font-size: 0.9rem;
   display: block;
   color: black;
+}
+
+.article-nav-home {
+  max-width: 100%;
+  height: auto;
+  padding: 0.25rem;
+
 }
 
 .prev {
@@ -756,7 +769,7 @@ a.error404-link:hover{
 }
 
 .page-header{
-  font-size: 2.75rem;
+  font-size: 2.55rem;
   color: black;
 }
 
@@ -822,15 +835,14 @@ a.error404-link:hover{
 
 .break-white-ad {
   background-color: #FFFFFF;
-  margin-top: 40px;
-  padding: 10px 0 20px 0;
-  min-height: 60px;
+  margin-top: 10px;
+  padding: 10px 0 10px 0;
 }
 
 .break-white-ad-pix {
   display:block;
   background-color: #FFFFFF;
-  margin: 25px auto 0 auto;
+  margin: 15px auto 0 auto;
   padding: 10px 0 20px 0;
   min-height: 40px;
   max-height: 100px;
@@ -877,6 +889,63 @@ a.error404-link:hover{
 
 
 /* COMMENTS SECTION */
+.comments-headers {
+  font-size: 1.75rem;
+  margin-bottom: 2.5rem;
+  text-align:center;
+  color: black;
+}
+
+.comments-headers i {
+  color: #00b6f1;
+}
+
+.comment-structure {
+  border-bottom: 1px dotted #80DBF8;
+  margin-bottom: 15px;
+}
+
+.comment-info {
+  text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .comment-info {
+    text-align: left;
+    padding-left: 0;
+  }
+}
+
+.comment-avatar {
+  padding: 0.25rem;
+  max-width: 100%;
+  height: auto;
+
+}
+
+.comment-author {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  color: black;
+}
+
+.comment-author a {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  color: black;
+}
+
+.comment-author a:hover {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  color: black;
+  text-decoration: none;
+}
+
+.comment-time {
+  font-size: 0.75rem;
+}
+
 .comments-text p {
   font-size: 1rem;
 }

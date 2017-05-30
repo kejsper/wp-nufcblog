@@ -17,12 +17,22 @@ $(document).ready(function () {
 
   //Init show return to top arrow on scroll
   $(document).on('scroll', function () {
-  setTimeout(showScrolltop, 300);
+    setTimeout(showScrolltop, 300);
   });
   //Scroll to top after click of return to top arrow
   scrolltop.on('click', function (event) {
-  event.preventDefault();
-  $('html, body').animate({scrollTop: 0}, 600);
+    event.preventDefault();
+    $('html, body').animate({scrollTop: 0}, 600);
+  });
+
+  // Internal links animation
+  $('a[href^="#"]').on('click', function (event) {
+    var target = $($(this).attr('href'));
+    
+    if ( target.length ) {
+      event.preventDefault();
+      $('html, body').animate({scrollTop: target.offset().top}, 700);
+    }
   });
 
   // Shows scroll top arrow
