@@ -7,6 +7,7 @@ require_once(get_template_directory().'/addons/ajax.php');
 require_once(get_template_directory().'/addons/links-plugin.php');
 require_once(get_template_directory().'/addons/cron-tables.php');
 require_once(get_template_directory().'/addons/random-background.php');
+require_once(get_template_directory().'/addons/comments-likes.php');
 
 function nufcblog_theme_setup () {
   // Setting up navigation menus

@@ -36,7 +36,7 @@ if ( $next = get_next_post(false) ) {
 }
 ?>
 <div class="row hidden-md-down">
-	<div class="col-4 text-right prev">
+	<div class="col-4 text-right previous">
 		<?php if(!empty($prev)): ?>
 
 				<a href="<?php echo $prev_permalink; ?>" class="article-nav"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous Post</a>
@@ -55,7 +55,7 @@ if ( $next = get_next_post(false) ) {
       <img src="<?php bloginfo('template_url'); ?>/img/nufclogo.png" class="article-nav-home mx-auto" alt="Newcastle United logo" style="max-height: 210px;">
 		</a>
 	</div>
-	<div class="col-4 text-left next">
+	<div class="col-4 text-left nextt">
 		<?php if(!empty($next)): ?>
 				<a href="<?php echo $next_permalink; ?>" class="article-nav"> Next Post <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 				<a href="<?php echo $next_permalink; ?>" class="article-nav-link-title">
@@ -78,7 +78,7 @@ if ( $next = get_next_post(false) ) {
 			</a>
 		<?php endif; ?>
 	</div>
-	<div class="col-6 text-left next">
+	<div class="col-6 text-left nextt">
 		<?php if(!empty($next)): ?>
 			<a href="<?php echo $next_permalink; ?>">
 				<span class="article-nav">
@@ -105,15 +105,18 @@ if ( $next = get_next_post(false) ) {
   </h3>
   <ul class="list-unstyled">
     <!-- single comment -->
-    <?php foreach ($comments as $comment) { ?>
-    <li id="comment-<?php comment_ID() ?>">
+    <?php foreach ($comments as $comment) {
+			$comment_id = get_comment_ID();
+			$user_email = get_comment_author_email($comment_id);
+			?>
+    <li id="comment-<?php echo $comment_id; ?>">
       <div class="col-12 px-0 comment-structure">
         <div class="row">
           <!-- author + gravatar + date -->
           <div class="col-12 col-sm-3 pr-sm-0">
             <div class="row">
             <div class="col-4 col-sm-12">
-              <img src="<?php echo get_avatar_url(user_ID); ?>" class="comment-avatar">
+              <img src="<?php echo get_avatar_url($user_email); ?>" class="comment-avatar">
             </div>
             <div class="col-8 col-sm-12 comment-info">
               <p class="comment-author"><strong><?php comment_author_link() ?> </strong></p>
@@ -123,7 +126,7 @@ if ( $next = get_next_post(false) ) {
           </div>
           <!-- comment body + link + additional options -->
           <div class="col-12 col-sm-9">
-            <div class="row">
+            <div class="row" style="height: 100%">
               <div class="col-12">
                 <div class="row">
                   <!-- comment body -->
@@ -131,18 +134,18 @@ if ( $next = get_next_post(false) ) {
                     <?php comment_text() ?>
                   </div>
                 </div>
+								<div class="row" style="position: absolute; bottom: 0; left: 0; width: 100%">
+									<div class="col-12 text-right pb-2">
+										<?php comments_likes_display($comment_id); ?>
+									</div>
+								</div>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <!-- additional options -->
-          <div class="col-12 text-right pb-2" style="color: #00b6f1">
-						
-            <!-- number + link
-            <a href="#comment-<?php comment_ID() ?>" title="Permalink to this comment">[#]</a>
-            -->
-          </div>
+
         </div>
       </div>
     </li>
@@ -162,6 +165,12 @@ if ( $next = get_next_post(false) ) {
   <?php
   endif;
   ?>
+
+	<!-- PAGINATION -->
+	<div class="container">
+		<?php paginate_comments_links(); ?>
+	</div>
+	<div class="break-white"></div>
 
   <!-- Start -  Adsense Responsive Ad2  -->
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -250,7 +259,7 @@ if ( $next = get_next_post(false) ) {
 				</a>
 			<?php endif; ?>
 		</div>
-		<div class="col-6 text-left next">
+		<div class="col-6 text-left nextt">
 			<?php if(!empty($next)): ?>
 				<a href="<?php echo $next_permalink; ?>">
 					<span class="article-nav">

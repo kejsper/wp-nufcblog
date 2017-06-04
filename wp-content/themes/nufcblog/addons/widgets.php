@@ -118,7 +118,7 @@ class nufcblog_author_widget extends WP_Widget {
           <img src="<?php the_post_thumbnail_url(); ?>" class="img-thumbnail">
           <?php endif;
           echo content(64);?>
-          <a href="<?php the_permalink(); ?>" class="btn btn-primary btn-block btn-read-more">read more...</a>
+          <a href="<?php the_permalink(); ?>" class="btn-read-more">read more...</a>
           <?php
       endwhile;
       endif;

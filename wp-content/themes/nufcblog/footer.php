@@ -1,16 +1,17 @@
-<!-- RESPONSIVE AD 2 - AD SENSE -->
-<div class="container break-white-ad">
-  <div id="leaderboard-pixfuture">
-    <script type="text/javascript">
-      if (!window.OX_ads) { OX_ads = []; }
-      OX_ads.push({ "auid" : "537654077" });
-    </script>
-    <script type="text/javascript">
-      document.write('<scr'+'ipt src="//ax-d.pixfuture.net/w/1.0/jstag"><\/scr'+'ipt>');
-    </script>
+  <!-- PIXFUTURE AD STARTS HERE -->
+  <div class="container break-white-ad-pix">
+    <div id="leaderboard-pixfuture">
+      <script type="text/javascript">
+        if (!window.OX_ads) { OX_ads = []; }
+          OX_ads.push({ "auid" : "537654077" });
+        </script>
+        <script type="text/javascript">
+          document.write('<scr'+'ipt src="http://ax-d.pixfuture.net/w/1.0/jstag"><\/scr'+'ipt>');
+        </script>
+        <noscript><iframe id="19878e3eb7" name="19878e3eb7" src="http://ax-d.pixfuture.net/w/1.0/afr?auid=537654077&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="http://ax-d.pixfuture.net/w/1.0/rc?cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="http://ax-d.pixfuture.net/w/1.0/ai?auid=537654077&cs=19878e3eb7&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+    </div>
   </div>
-</div>
-<!-- RESPONSIVE AD 2 - ENDS HERE -->
+  <!-- PIXFUTURE AD ENDS HERE -->
 
 <!-- footer section -->
 <footer>
@@ -34,10 +35,10 @@
         <!-- socials section -->
         <div class="socials">
           <h4 class="footer-header">social media</h4>
-          <a href="https://www.facebook.com/The-Newcastle-United-Blog-159823257424834/" type="button" class="btn btn-info social-icon fb" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/thenufcblog" type="button" class="btn btn-info social-icon tw" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-          <a href="https://plus.google.com/+nufcblog" type="button" class="btn btn-info social-icon gplus" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-          <a href="http://feeds.feedburner.com/nufcblog" type="button" class="btn btn-info social-icon rss" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/The-Newcastle-United-Blog-159823257424834/" class="social-icon fb" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/thenufcblog" class="social-icon tw" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/+nufcblog" class="social-icon gplus" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+          <a href="http://feeds.feedburner.com/nufcblog" class="social-icon rss" target="_blank"><i class="fa fa-rss" aria-hidden="true"></i></a>
         </div>
         <!-- end of socials section -->
 

@@ -28,7 +28,7 @@ $(document).ready(function () {
   // Internal links animation
   $('a[href^="#"]').on('click', function (event) {
     var target = $($(this).attr('href'));
-    
+
     if ( target.length ) {
       event.preventDefault();
       $('html, body').animate({scrollTop: target.offset().top}, 700);
@@ -61,9 +61,7 @@ $(document).ready(function () {
     var page = $(that).data('page');
     var newPage = page+1;
     var ajaxurl = $(that).data('url');
-
     that.addClass('loading').find('.fa-refresh').addClass('icon-heli');
-
 
     $.ajax({
       url : ajaxurl,
@@ -79,6 +77,47 @@ $(document).ready(function () {
         that.data('page', newPage);
         $('.load-more-container').append( response );
         that.removeClass('loading').find('.fa-refresh').removeClass('icon-heli');
+      }
+
+    });
+
+  });
+
+  // COMMENTS LIKES FUNCTIONALITY
+  $(document).on('click', '.comment-like', function(event) {
+    var that = $(this);
+    var ajaxurl = $(that).data('url');
+    var commentID = $(that).data('comment_id');
+    var icon = $(that).find('i');
+    var span = $('#votes-count-'+commentID);
+    var whatClass = icon.attr('class').substr(14);
+
+    if ( ( whatClass !== 'vote' ) && ( whatClass !== 'voted' ) ) {
+      whatClass = 'vote';
+    }
+
+    event.preventDefault();
+
+    $.ajax({
+      url : ajaxurl,
+      type : 'post',
+      data : {
+        comment_id : commentID,
+        action : 'comments_likes'
+      },
+      error : function( response ) {
+        console.log(response);
+      },
+      success : function( response ) {
+        $('#votes-count-'+commentID).html( response );
+        if (whatClass==='vote') {
+          icon.addClass('voted').removeClass('vote');
+          span.addClass('voted').removeClass('vote');
+        }
+        else {
+          icon.addClass('vote').removeClass('voted');
+          span.addClass('vote').removeClass('voted');
+        }
       }
 
     });
